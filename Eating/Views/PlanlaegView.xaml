@@ -28,6 +28,7 @@
            
         </ListView>
         <Button x:Name="button2" Content="Save to json" HorizontalAlignment="Left" Margin="806,217,0,0" VerticalAlignment="Top" Command="{Binding SaveMenu, Mode=OneWay}"/>
+        <Button x:Name="button3" Content="hent" HorizontalAlignment="Left" Margin="640,352,0,0" VerticalAlignment="Top" Command="{Binding HentMenu}"/>
 
     </Grid>
 </Page>

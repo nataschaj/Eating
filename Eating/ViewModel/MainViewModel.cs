@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace Eating.ViewModel
 {
@@ -17,7 +18,7 @@ namespace Eating.ViewModel
         public Model.Planlaeg nyPlanlaeg { get; set; }
         public Model.PlanlaegListe PlanlaegListe { get; set; }
         public AddCommand AddMenu { get; set; }
-        public saveCommand SaveMenu { get; private set; }
+        public saveCommand SaveMenu { get;  set; }
         public hentCommand HentMenu { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -31,6 +32,7 @@ namespace Eating.ViewModel
             AddMenu = new AddCommand(AddNewMenu);
             SaveMenu = new saveCommand(GemDataTilDiskAsync);
             HentMenu = new hentCommand(HentDataFraDiskAsync);
+            localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
 
         }
@@ -61,8 +63,8 @@ namespace Eating.ViewModel
             }
             catch (Exception)
             {
-                /*  MessageDialog messageDialog = new MessageDialog("Ændret filnavn eller har du ikke gemt ?", "Filnavn");
-                  await messageDialog.ShowAsync(); */
+                 MessageDialog messageDialog = new MessageDialog("Ændret filnavn eller har du ikke gemt ?", "Filnavn");
+                  await messageDialog.ShowAsync(); 
             }
         }
 
