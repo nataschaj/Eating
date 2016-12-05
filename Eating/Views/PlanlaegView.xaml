@@ -5,11 +5,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:ViewModel="using:Eating.ViewModel"
     x:Class="Eating.Views.PlanlaegView"
     mc:Ignorable="d">
 
+    <Page.DataContext>
+        <ViewModel:MainViewModel/>
+    </Page.DataContext>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="84,107,0,0" TextWrapping="Wrap" Text="Planlæg View" VerticalAlignment="Top" Height="45" Width="152"/>
         <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="134,353,0,0" VerticalAlignment="Top">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
@@ -17,6 +21,13 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="575,128,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top"/>
+        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="669,128,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="669,217,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="302,107,0,0" VerticalAlignment="Top" Width="134" ItemsSource="{Binding PlanlaegListe}">
+           
+        </ListView>
+        <Button x:Name="button2" Content="Save to json" HorizontalAlignment="Left" Margin="806,217,0,0" VerticalAlignment="Top" Command="{Binding SaveMenu, Mode=OneWay}"/>
 
     </Grid>
 </Page>
