@@ -14,21 +14,29 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="button" Content="Back" HorizontalAlignment="Left" Margin="134,353,0,0" VerticalAlignment="Top">
+
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,931,0,0" VerticalAlignment="Top" Height="83" Width="213">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="575,128,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top"/>
-        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="669,128,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="669,217,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
+        <Button x:Name="Planlaeg" Content="Planlæg" HorizontalAlignment="Left" Margin="213,931,0,0" VerticalAlignment="Top" Height="83" Width="214">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Eating.Views.PlanlaegView"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
+        <Button x:Name="Afregning" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213"/>
+
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="73,112,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top"/>
+        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="61,162,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="73,255,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
         <ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="302,107,0,0" VerticalAlignment="Top" Width="134" ItemsSource="{Binding PlanlaegListe}">
            
         </ListView>
-        <Button x:Name="button2" Content="Save to json" HorizontalAlignment="Left" Margin="806,217,0,0" VerticalAlignment="Top" Command="{Binding SaveMenu, Mode=OneWay}"/>
-        <Button x:Name="button3" Content="hent" HorizontalAlignment="Left" Margin="640,352,0,0" VerticalAlignment="Top" Command="{Binding HentMenu}"/>
 
     </Grid>
 </Page>

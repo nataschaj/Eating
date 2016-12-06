@@ -15,6 +15,7 @@ namespace Eating.ViewModel
         StorageFolder localfolder = null;
         private readonly string filnavn = "JsonMENU.json";
 
+        /*Properties*/
         public Model.Planlaeg nyPlanlaeg { get; set; }
         public Model.PlanlaegListe PlanlaegListe { get; set; }
         public AddCommand AddMenu { get; set; }
@@ -24,7 +25,7 @@ namespace Eating.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         
 
-
+        /*Constructor*/
         public MainViewModel()
         {
             nyPlanlaeg = new Model.Planlaeg();
@@ -37,11 +38,13 @@ namespace Eating.ViewModel
 
         }
 
+        /*Methodes */
         public void AddNewMenu()
         {
             var temp = new Model.Planlaeg();
             temp.Ret = nyPlanlaeg.Ret;
             PlanlaegListe.Add(temp);
+            GemDataTilDiskAsync();
         }
 
         public async void GemDataTilDiskAsync()
@@ -62,9 +65,10 @@ namespace Eating.ViewModel
                 PlanlaegListe.IndsetJson(jsonText);
             }
             catch (Exception)
-            {
+            {/*
                  MessageDialog messageDialog = new MessageDialog("Ændret filnavn eller har du ikke gemt ?", "Filnavn");
                   await messageDialog.ShowAsync(); 
+                  */
             }
         }
 
