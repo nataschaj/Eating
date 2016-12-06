@@ -17,21 +17,21 @@
         <Rectangle Fill="#FF9D2D2C" HorizontalAlignment="Left" Height="67" Stroke="Black" VerticalAlignment="Top" Width="640"/>
         <TextBlock x:Name="Header" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Planlæg Ugen" VerticalAlignment="Top" Height="57" Width="630" Foreground="White" TextAlignment="Center"/>
 
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,931,0,0" VerticalAlignment="Top" Height="83" Width="213">
+        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,931,0,0" VerticalAlignment="Top" Height="83" Width="213" Background="#FF9D2D2C" Foreground="White">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Planlaeg" Content="Planlæg" HorizontalAlignment="Left" Margin="213,931,0,0" VerticalAlignment="Top" Height="83" Width="214">
+        <Button x:Name="Planlaeg" Content="Planlæg" HorizontalAlignment="Left" Margin="213,931,0,0" VerticalAlignment="Top" Height="83" Width="214" Foreground="White" Background="#FF9D2D2C">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
                     <Core:NavigateToPageAction TargetPage="Eating.Views.PlanlaegView"/>
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Afregning" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213"/>
+        <Button x:Name="Afregning" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213" Foreground="White" Background="#FF9D2D2C"/>
 
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="556,135,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.55"/>
         <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="556,160,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
