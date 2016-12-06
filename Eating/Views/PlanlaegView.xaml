@@ -31,12 +31,18 @@
         </Button>
         <Button x:Name="Afregning" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213"/>
 
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="73,112,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top"/>
-        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="61,162,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="73,255,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="302,107,0,0" VerticalAlignment="Top" Width="134" ItemsSource="{Binding PlanlaegListe}">
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="233,135,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.55"/>
+        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="233,160,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="235,437,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,306,0,0" VerticalAlignment="Top" Width="134" ItemsSource="{Binding PlanlaegListe}">
            
         </ListView>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="233,197,0,0" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="233,222,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="235,275,0,0" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="235,306,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="235,356,0,0" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="235,381,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

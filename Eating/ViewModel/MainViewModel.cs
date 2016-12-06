@@ -43,6 +43,9 @@ namespace Eating.ViewModel
         {
             var temp = new Model.Planlaeg();
             temp.Ret = nyPlanlaeg.Ret;
+            temp.ChefKok = nyPlanlaeg.ChefKok;
+            temp.Hjaelpere = nyPlanlaeg.Hjaelpere;
+            temp.Oprydere = nyPlanlaeg.Oprydere;
             PlanlaegListe.Add(temp);
             GemDataTilDiskAsync();
         }
