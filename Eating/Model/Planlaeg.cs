@@ -15,7 +15,7 @@ namespace Eating.Model
 
         public override string ToString()
         {
-            return Ret + " \n " + ChefKok + "\n  " + Hjaelpere + "\n  " + Oprydere + " \n ";
+            return "Ret " + Ret + " \n " + ChefKok + "\n  " + Hjaelpere + "\n  " + Oprydere + " \n ";
         }
     }
 }

@@ -14,6 +14,10 @@
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Rectangle Fill="#FF9D2D2C" HorizontalAlignment="Left" Height="67" Stroke="Black" VerticalAlignment="Top" Width="640"/>
+        <TextBlock x:Name="Header" HorizontalAlignment="Left" Margin="241,10,0,0" TextWrapping="Wrap" Text="Ugens Menu" VerticalAlignment="Top" Height="41" Width="173" SelectionChanged="textBlock_SelectionChanged" TextAlignment="Center" FocusVisualPrimaryBrush="#FF060606" Foreground="White"/>
+
+
         <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,931,0,0" VerticalAlignment="Top" Height="83" Width="213"/>
         <Button x:Name="Planlaeg" Content="Planlæg" HorizontalAlignment="Left" Margin="213,931,0,0" VerticalAlignment="Top" Height="83" Width="214">
             <Interactivity:Interaction.Behaviors>
@@ -23,7 +27,10 @@
             </Interactivity:Interaction.Behaviors>
         </Button>
         <Button x:Name="button" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="440" Margin="412,72,0,0" VerticalAlignment="Top" Width="218" ItemsSource="{Binding PlanlaegListe}" RenderTransformOrigin="0.483,0.493"/>
-       
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="181" Margin="212,72,0,0" VerticalAlignment="Top" Width="418" ItemsSource="{Binding PlanlaegListe}" RenderTransformOrigin="0.483,0.493" Background="#FFF1EFEF" Foreground="#FF9D2D2C"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="186" Margin="0,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="213"/>
+        <TextBlock x:Name="Mandag" HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="203" TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>
+        <Button x:Name="TilMeldMandag" Content="Tilmeld" HorizontalAlignment="Left" Margin="374,277,0,0" VerticalAlignment="Top" Background="#FF9D2D2C" FocusVisualPrimaryBrush="White" Foreground="White"/>
+
     </Grid>
 </Page>
