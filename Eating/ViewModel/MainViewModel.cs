@@ -33,7 +33,7 @@ namespace Eating.ViewModel
             set { _selectedMenu = value; }
         }
 
-
+        public List<String> UgeDage { get; set; }
 
         /*Constructor*/
         public MainViewModel()
@@ -46,7 +46,12 @@ namespace Eating.ViewModel
             SaveMenu = new saveCommand(GemDataTilDiskAsync);
             HentMenu = new hentCommand(HentDataFraDiskAsync);
             localfolder = ApplicationData.Current.LocalFolder;
-            HentDataFraDiskAsync();           
+            HentDataFraDiskAsync();
+            UgeDage = new List<String>();
+            UgeDage.Add("Mandag");
+            UgeDage.Add("Tirsdag");
+            UgeDage.Add("Onsdag");
+            UgeDage.Add("Torsdag");
 
         }
 

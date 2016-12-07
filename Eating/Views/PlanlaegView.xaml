@@ -35,7 +35,7 @@
 
 
 
-        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="348,288,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="348,288,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}" Click="button1_Click"/>
         <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,160,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding PlanlaegListe}">
 
         </ListView>-->
@@ -53,7 +53,10 @@
         <StackPanel Margin="10,80,0,0" Orientation="Horizontal">
             <StackPanel Margin="10,0,0,0">
                 <TextBlock x:Name="DagTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dag" VerticalAlignment="Top"/>
-                <TextBox x:Name="DagTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Dag, Mode=TwoWay}" VerticalAlignment="Top"/>
+                
+               <!-- <TextBox x:Name="DagTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Dag, Mode=TwoWay}" VerticalAlignment="Top"/> -->
+                <ComboBox ItemsSource="{Binding UgeDage}" SelectedItem="{Binding nyPlanlaeg.Dag, Mode=TwoWay}"/>
+
             </StackPanel>
 
 
@@ -79,6 +82,7 @@
         </StackPanel>
 
         <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Margin="442,288,0,0" VerticalAlignment="Top" Height="33" Width="66" Click="button_Click" Command="{Binding RemoveMenuCommand}"/>
+        <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="261,369,0,0" TextWrapping="Wrap" Text="" FontSize="40" VerticalAlignment="Top"/>
 
 
 

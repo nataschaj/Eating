@@ -31,5 +31,11 @@ namespace Eating.Views
         {
 
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            ResultTextBlock.Text = "Menu er oprettet";
+           
+        }
     }
 }

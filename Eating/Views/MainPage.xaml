@@ -24,16 +24,31 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="1*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                   
-                        <TextBlock x:Name="Mandag" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Dag}" VerticalAlignment="Top" Width="203" TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>
 
-                        <StackPanel Grid.Column="1">
-                            <TextBlock Text="{Binding Ret}"/>
-                            <TextBlock Text="{Binding ChefKok}"/>
-                            <TextBlock Text="{Binding Hjaelpere}"/>
+
+                        <StackPanel Grid.Column="0" Height="200" >
+                            <TextBlock x:Name="Mandag"   FontStyle="Italic"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Dag}" VerticalAlignment="Top" Width="203" TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>
                         </StackPanel>
+
+                        <StackPanel Grid.Column="1"  Height="200">
+                            <TextBlock FontWeight="Bold" Text="Menu" Foreground="#FF9D2D2C"/>
+                            <TextBlock  Padding="0,0,0,10" Text="{Binding Ret}" Foreground="#FF9D2D2C"/>
+
+
+                            <TextBlock FontWeight="Bold" Text="Chef kok" Foreground="#FF9D2D2C"/>
+                            <TextBlock  Padding="0,0,0,10" Text="{Binding ChefKok}" Foreground="#FF9D2D2C"/>
+
+                            <TextBlock FontWeight="Bold" Text="Hjælpere" Foreground="#FF9D2D2C"/>
+                            <TextBlock  Padding="0,0,0,10" Text="{Binding Hjaelpere}" Foreground="#FF9D2D2C"/>
+
+                            <TextBlock FontWeight="Bold" Text="Oprydere" Foreground="#FF9D2D2C"/>
+                            <TextBlock  Padding="0,0,0,10" Text="{Binding Oprydere}" Foreground="#FF9D2D2C" />
+                        </StackPanel>
+
+                        <Grid x:Name="FirstGrid"  Grid.Column="0"/>
+                        <Grid x:Name="SecondGrid" Grid.Column="1"/>
                     </Grid>
                     
 
