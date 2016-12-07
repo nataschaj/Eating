@@ -99,6 +99,7 @@
     <Compile Include="ViewModel\AddCommand.cs" />
     <Compile Include="ViewModel\hentCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\RemoveMenuCommand.cs" />
     <Compile Include="ViewModel\saveCommand.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -116,6 +117,7 @@
     <None Include="Eating_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\home.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

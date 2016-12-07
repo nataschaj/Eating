@@ -10,10 +10,22 @@ namespace Eating.Model
 {
     public class PlanlaegListe : ObservableCollection<Planlaeg>
     {
+
+        public Planlaeg Mandag { get; set; }
+        public Planlaeg Tirsdag { get; set; }
+        public Planlaeg Onsdag { get; set; }
+        public Planlaeg Torsdag { get; set; }
+
+
+      
+
         public PlanlaegListe() : base()
         {
             //this.Add(new Planlaeg() { Ret = "Kylling", ChefKok="Mathias", Hjaelpere = "Natascha", Oprydere="Rudi" });
+            
         }
+
+        
 
         /// <summary>
         /// Giver mig Json format for Planlegningsliste object

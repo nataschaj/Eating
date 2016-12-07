@@ -33,18 +33,52 @@
         </Button>
         <Button x:Name="Afregning" Content="Afregning" HorizontalAlignment="Left" Margin="427,931,0,0" VerticalAlignment="Top" Height="83" Width="213" Foreground="White" Background="#FF9D2D2C"/>
 
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="556,135,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.55"/>
-        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="556,160,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="554,437,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,160,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding PlanlaegListe}">
 
-        </ListView>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="556,197,0,0" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="556,222,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="554,279,0,0" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="554,306,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="554,356,0,0" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="554,381,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>
+
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="348,288,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}"/>
+        <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,160,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding PlanlaegListe}">
+
+        </ListView>-->
+
+        <!--
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="348,147,0,0" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
+        <TextBox x:Name="Ret" HorizontalAlignment="Left" Margin="348,172,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="450,147,0,0" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="444,172,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="348,215,0,0" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="348,240,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="437,215,0,0" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="444,240,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>-->
+
+        <StackPanel Margin="10,80,0,0" Orientation="Horizontal">
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock x:Name="DagTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dag" VerticalAlignment="Top"/>
+                <TextBox x:Name="DagTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Dag, Mode=TwoWay}" VerticalAlignment="Top"/>
+            </StackPanel>
+
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock x:Name="ChefKokTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
+                <TextBox x:Name="ChefKokTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock x:Name="HjaelpereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
+                <TextBox x:Name="HjaelpereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock x:Name="OprydereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
+                <TextBox x:Name="OprydereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>
+            </StackPanel>
+
+            <StackPanel Margin="10,0,0,0">
+                <TextBlock x:Name="RetTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
+                <TextBox x:Name="RetTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Margin="442,288,0,0" VerticalAlignment="Top" Height="33" Width="66" Click="button_Click" Command="{Binding RemoveMenuCommand}"/>
 
 
 

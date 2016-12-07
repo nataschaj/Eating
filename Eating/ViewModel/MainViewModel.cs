@@ -21,20 +21,32 @@ namespace Eating.ViewModel
         public AddCommand AddMenu { get; set; }
         public saveCommand SaveMenu { get;  set; }
         public hentCommand HentMenu { get; set; }
+        public RemoveMenuCommand RemoveMenuCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        
+
+        private Model.Planlaeg _selectedMenu;
+
+        public Model.Planlaeg SelectedMenu
+        {
+            get { return _selectedMenu; }
+            set { _selectedMenu = value; }
+        }
+
+
 
         /*Constructor*/
         public MainViewModel()
         {
+            _selectedMenu = new Model.Planlaeg();
             nyPlanlaeg = new Model.Planlaeg();
             PlanlaegListe = new Model.PlanlaegListe();
             AddMenu = new AddCommand(AddNewMenu);
+            RemoveMenuCommand = new RemoveMenuCommand(RemoveThisMenu);
             SaveMenu = new saveCommand(GemDataTilDiskAsync);
             HentMenu = new hentCommand(HentDataFraDiskAsync);
             localfolder = ApplicationData.Current.LocalFolder;
-            HentDataFraDiskAsync();
+            HentDataFraDiskAsync();           
 
         }
 
@@ -46,8 +58,14 @@ namespace Eating.ViewModel
             temp.ChefKok = nyPlanlaeg.ChefKok;
             temp.Hjaelpere = nyPlanlaeg.Hjaelpere;
             temp.Oprydere = nyPlanlaeg.Oprydere;
+            temp.Dag = nyPlanlaeg.Dag;
             PlanlaegListe.Add(temp);
             GemDataTilDiskAsync();
+        }
+
+        public void RemoveThisMenu()
+        {
+            PlanlaegListe.Remove(SelectedMenu);
         }
 
         public async void GemDataTilDiskAsync()
