@@ -22,6 +22,7 @@ namespace Eating.ViewModel
         public saveCommand SaveMenu { get;  set; }
         public hentCommand HentMenu { get; set; }
         public RemoveMenuCommand RemoveMenuCommand { get; set; }
+        public List<String> UgeDage { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -33,7 +34,9 @@ namespace Eating.ViewModel
             set { _selectedMenu = value; }
         }
 
-        public List<String> UgeDage { get; set; }
+        
+
+       
 
         /*Constructor*/
         public MainViewModel()
@@ -52,7 +55,6 @@ namespace Eating.ViewModel
             UgeDage.Add("Tirsdag");
             UgeDage.Add("Onsdag");
             UgeDage.Add("Torsdag");
-
         }
 
         /*Methodes */
@@ -64,6 +66,7 @@ namespace Eating.ViewModel
             temp.Hjaelpere = nyPlanlaeg.Hjaelpere;
             temp.Oprydere = nyPlanlaeg.Oprydere;
             temp.Dag = nyPlanlaeg.Dag;
+            temp.OpretDato = DateTime.Now;
             PlanlaegListe.Add(temp);
             GemDataTilDiskAsync();
         }

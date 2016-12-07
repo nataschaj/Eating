@@ -11,10 +11,7 @@ namespace Eating.Model
     public class PlanlaegListe : ObservableCollection<Planlaeg>
     {
 
-        public Planlaeg Mandag { get; set; }
-        public Planlaeg Tirsdag { get; set; }
-        public Planlaeg Onsdag { get; set; }
-        public Planlaeg Torsdag { get; set; }
+      
 
 
       

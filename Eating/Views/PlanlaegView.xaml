@@ -79,12 +79,13 @@
                 <TextBlock x:Name="RetTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
                 <TextBox x:Name="RetTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
             </StackPanel>
+
+        
+
         </StackPanel>
 
         <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Margin="442,288,0,0" VerticalAlignment="Top" Height="33" Width="66" Click="button_Click" Command="{Binding RemoveMenuCommand}"/>
         <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="261,369,0,0" TextWrapping="Wrap" Text="" FontSize="40" VerticalAlignment="Top"/>
-
-
 
 
 

@@ -8,14 +8,26 @@ namespace Eating.Model
 {
     public class Planlaeg
     {
-        
-   
+
+       
 
         public string Ret { get; set; }
         public string ChefKok { get; set; }
         public string Hjaelpere { get; set; }
         public string Oprydere { get; set; }
         public string Dag { get; set; }
+        public DateTime OpretDato { get; set; }
+        public string OpretDatoText { get {
+                return OpretDato.ToString("d-M-yyyy");
+            } }
+
+
+        //public string thisDay
+        //{
+        //    get { return DateTime.Now.ToString("d-s-yyyy");}
+        //    set {  }
+        //}
+
 
         public override string ToString()
         {
