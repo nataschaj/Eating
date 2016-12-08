@@ -13,7 +13,7 @@ namespace Eating.ViewModel
     {
 
         StorageFolder localfolder = null;
-        private readonly string filnavn = "JsonMENU.json";
+        private readonly string filnavn = "JsonMENU.json"; //test
 
         /*Properties*/
         public Model.Planlaeg nyPlanlaeg { get; set; }
