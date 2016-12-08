@@ -19,7 +19,7 @@
             <RowDefinition Height="27*"/>
         </Grid.RowDefinitions>
         <Rectangle Fill="#FF9D2D2C" HorizontalAlignment="Left" Height="67" Stroke="Black" VerticalAlignment="Top" Width="640"/>
-        <TextBlock x:Name="Header" HorizontalAlignment="Left" Margin="241,10,0,0" TextWrapping="Wrap" Text="Ugens Menu" VerticalAlignment="Top" Height="41" Width="173" SelectionChanged="textBlock_SelectionChanged" TextAlignment="Center" FocusVisualPrimaryBrush="#FF060606" Foreground="White"/>
+        <TextBlock x:Name="Header" HorizontalAlignment="Left" Margin="241,10,0,0" TextWrapping="Wrap" Text="Ugens Menu" VerticalAlignment="Top" Height="41" Width="173" SelectionChanged="textBlock_SelectionChanged" TextAlignment="Center"  Foreground="White"/>
 
         <ListView x:Name="listView" ItemsSource="{Binding PlanlaegListe}" HorizontalAlignment="Left" Height="859" Margin="0,67,0,0" VerticalAlignment="Top" Width="640" Grid.RowSpan="2" >
             <ListView.ItemTemplate>
@@ -67,7 +67,13 @@
         </ListView>
 
 
-        <Button x:Name="Home" Content="Home" HorizontalAlignment="Left" Margin="0,123.4,0,0" VerticalAlignment="Top" Height="83" Width="160" Background="#FF9D2D2C" Foreground="White" Grid.Row="1"/>
+        <Button x:Name="Home" Content="&#xD;&#xA;Home" HorizontalAlignment="Left" Margin="0,123.4,0,0" VerticalAlignment="Top" Height="83" Width="160" Background="#FF9D2D2C" Foreground="White" Grid.Row="1">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
         <Button x:Name="Planlaeg" Content="Planlæg" HorizontalAlignment="Left" Margin="160,123,0,0" VerticalAlignment="Top" Height="83" Width="160" Background="#FF9D2D2C" Foreground="White" Grid.Row="1">
             <Interactivity:Interaction.Behaviors>
                 <Core:EventTriggerBehavior EventName="Click">
@@ -75,7 +81,13 @@
                 </Core:EventTriggerBehavior>
             </Interactivity:Interaction.Behaviors>
         </Button>
-        <Button x:Name="Tilmeld" Content="Tilmeld" HorizontalAlignment="Left" Margin="320,123,0,0" VerticalAlignment="Top" Height="83" Width="160" Foreground="White" Background="#FF9D2D2C" Grid.Row="1"/>
+        <Button x:Name="Tilmeld" Content="Tilmeld" HorizontalAlignment="Left" Margin="320,123,0,0" VerticalAlignment="Top" Height="83" Width="160" Foreground="White" Background="#FF9D2D2C" Grid.Row="1">
+            <Interactivity:Interaction.Behaviors>
+                <Core:EventTriggerBehavior EventName="Click">
+                    <Core:NavigateToPageAction TargetPage="Eating.Views.TilmeldView"/>
+                </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+        </Button>
         <Button x:Name="Afregn" Content="Afregning" HorizontalAlignment="Left" Margin="480,123,0,0" VerticalAlignment="Top" Height="83" Width="160" Foreground="White" Background="#FF9D2D2C" Grid.Row="1"/>
         <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="186" Margin="212,67,0,0" VerticalAlignment="Top" Width="428" ItemsSource="{Binding PlanlaegListe}" RenderTransformOrigin="0.483,0.493" Background="#FFF1EFEF" Foreground="#FF9D2D2C"/>-->
 
@@ -83,7 +95,7 @@
 
         <!--<Rectangle Fill="White" HorizontalAlignment="Left" Height="186" Margin="0,67,0,0" Stroke="Black" VerticalAlignment="Top" Width="213"/>
         <TextBlock x:Name="Mandag" HorizontalAlignment="Left" Margin="10,133,0,0" TextWrapping="Wrap" Text="M" VerticalAlignment="Top" Width="203" TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>-->
-        <Image x:Name="ms_appx____Assets_home_png" Height="50" Margin="105,0,0,10" Source="ms-appx:///Assets/home.png" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="55" Grid.Row="1"/>
+        <Image x:Name="ms_appx____Assets_home_png" Height="26" Margin="62,0,0,48" Source="ms-appx:///Assets/home.png" Stretch="Fill" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33" Grid.Row="1"/>
 
 
     </Grid>
