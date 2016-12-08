@@ -31,7 +31,9 @@ namespace Eating.ViewModel
         public Model.Planlaeg SelectedMenu
         {
             get { return _selectedMenu; }
-            set { _selectedMenu = value; }
+            set { _selectedMenu = value;
+                OnPropertyChanged(nameof(SelectedMenu));
+            }
         }
 
         
@@ -74,6 +76,7 @@ namespace Eating.ViewModel
         public void RemoveThisMenu()
         {
             PlanlaegListe.Remove(SelectedMenu);
+            GemDataTilDiskAsync();
         }
 
         public async void GemDataTilDiskAsync()
