@@ -11,8 +11,8 @@
     <AssemblyName>Eating</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -95,7 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Bolig.cs" />
     <Compile Include="Model\PlanlaegListe.cs" />
+    <Compile Include="Model\TilmeldListe.cs" />
     <Compile Include="ViewModel\AddCommand.cs" />
     <Compile Include="ViewModel\hentCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
@@ -108,6 +110,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\PlanlaegView.xaml.cs">
       <DependentUpon>PlanlaegView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TilmeldView.xaml.cs">
+      <DependentUpon>TilmeldView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +142,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PlanlaegView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TilmeldView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

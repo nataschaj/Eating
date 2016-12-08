@@ -6,23 +6,20 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Newtonsoft.Json;
 
+
 namespace Eating.Model
 {
-    public class PlanlaegListe : ObservableCollection<Planlaeg>
+    public class TilmeldListe : ObservableCollection<Bolig>
     {
-
-      
-
-        public PlanlaegListe() : base()
+        public TilmeldListe() : base()
         {
-            //this.Add(new Planlaeg() { Ret = "Kylling", ChefKok="Mathias", Hjaelpere = "Natascha", Oprydere="Rudi" });
-            
         }
 
-        
+
+
 
         /// <summary>
-        /// Giver mig Json format for Planlegningsliste object
+        /// Giver mig Json format for Tilmeld object
         /// </summary>
         /// <returns></returns>
         public string getJson()
@@ -37,12 +34,13 @@ namespace Eating.Model
         /// <param name="jsonText"></param>
         public void IndsetJson(string jsonText)
         {
-            List<Planlaeg> nyListe = JsonConvert.DeserializeObject<List<Planlaeg>>(jsonText);
+            List<Bolig> nyListe = JsonConvert.DeserializeObject<List<Bolig>>(jsonText);
 
-            foreach (var PlanlaegItem in nyListe)
+            foreach (var BoligItem in nyListe)
             {
-                this.Add(PlanlaegItem);
+                this.Add(BoligItem);
             }
         }
+
     }
 }
