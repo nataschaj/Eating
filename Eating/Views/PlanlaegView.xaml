@@ -42,7 +42,7 @@
 
 
         <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="413,102,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}" Click="button1_Click"/>
-     
+
 
         <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,160,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding PlanlaegListe}">
 
@@ -57,41 +57,69 @@
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="348,240,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="437,215,0,0" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="444,240,0,0" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>-->
+        <Grid>
+            <StackPanel Margin="10,80,0,850" Orientation="Horizontal">
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock x:Name="DagTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dag" VerticalAlignment="Top"/>
 
-        <StackPanel Margin="10,80,0,0" Orientation="Horizontal">
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock x:Name="DagTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dag" VerticalAlignment="Top"/>
-                
-               <!-- <TextBox x:Name="DagTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Dag, Mode=TwoWay}" VerticalAlignment="Top"/> -->
-                <ComboBox ItemsSource="{Binding UgeDage}" SelectedItem="{Binding nyPlanlaeg.Dag, Mode=TwoWay}"/>
+                    <!-- <TextBox x:Name="DagTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Dag, Mode=TwoWay}" VerticalAlignment="Top"/> -->
+                    <ComboBox ItemsSource="{Binding UgeDage}" SelectedItem="{Binding nyPlanlaeg.Dag, Mode=TwoWay}"/>
+
+                </StackPanel>
+
+
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock x:Name="ChefKokTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
+                    <TextBox x:Name="ChefKokTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock x:Name="HjaelpereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
+                    <TextBox x:Name="HjaelpereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock x:Name="OprydereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
+                    <TextBox x:Name="OprydereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>
+                </StackPanel>
+
+                <StackPanel Margin="10,0,0,0">
+                    <TextBlock x:Name="RetTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
+                    <TextBox x:Name="RetTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
+                </StackPanel>
+
+
+
 
             </StackPanel>
+            <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="494,142,0,0" TextWrapping="Wrap" Text="" FontSize="24" VerticalAlignment="Top" />
+        </Grid>
+
+        <ListView x:Name="listView" ItemsSource="{Binding PlanlaegListe}" HorizontalAlignment="Left" Height="411" Margin="0,140,0,0" VerticalAlignment="Top" Width="234" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                          
+                        </Grid.ColumnDefinitions>
 
 
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock x:Name="ChefKokTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Chef kok" VerticalAlignment="Top"/>
-                <TextBox x:Name="ChefKokTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.ChefKok, Mode=TwoWay}" VerticalAlignment="Top"/>
-            </StackPanel>
+                        <StackPanel Grid.Column="0" Height="200" >
+                            <TextBlock x:Name="Dag"   FontStyle="Italic"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Dag}" VerticalAlignment="Top" TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>
+                            <TextBlock Text="Oprettelse Dato:"  TextAlignment="Center"  />
+                            <TextBlock x:Name="Dato" Text="{Binding OpretDatoText}"  TextAlignment="Center"/>
+                        </StackPanel>
 
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock x:Name="HjaelpereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Hjælpere" VerticalAlignment="Top"/>
-                <TextBox x:Name="HjaelpereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Hjaelpere, Mode=TwoWay}" VerticalAlignment="Top"/>
-            </StackPanel>
+                        
 
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock x:Name="OprydereTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Opryddere" VerticalAlignment="Top"/>
-                <TextBox x:Name="OprydereTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Oprydere, Mode=TwoWay}" VerticalAlignment="Top"/>
-            </StackPanel>
-
-            <StackPanel Margin="10,0,0,0">
-                <TextBlock x:Name="RetTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ret" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
-                <TextBox x:Name="RetTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
-            </StackPanel>
-        </StackPanel>
-        <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="494,142,0,0" TextWrapping="Wrap" Text="" FontSize="24" VerticalAlignment="Top" />
-
-
-
+                        <Grid x:Name="FirstGrid"  Grid.Column="0"/>
+                      
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </Grid>
 </Page>
