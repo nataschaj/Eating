@@ -13,7 +13,7 @@ namespace Eating.Model
         public int NumberKidsZeroThree { get; set; }
         public int NumberKidsFourSix { get; set; }
         public int NUmberKidsSevenFifteen { get; set; }
-
+        
 
 
         public override string ToString()
