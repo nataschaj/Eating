@@ -9,9 +9,9 @@
     x:Class="Eating.MainPage"
     mc:Ignorable="d">
 
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <ViewModel:MainViewModel/>
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
