@@ -18,7 +18,7 @@ namespace Eating.Model
 
         public override string ToString()
         {
-            return $"HusNr: {HusNr},NumberOfAdults {NumberAdults}, NumberOfKids 0-3 {NumberKidsZeroThree}, NumberOfKids 4-6 {NumberKidsFourSix}, NumberOfKids 7-15 {NUmberKidsSevenFifteen}";
+            return $"{HusNr} {NumberAdults} {NumberKidsZeroThree} {NumberKidsFourSix} {NUmberKidsSevenFifteen}";
         }
 
     }
