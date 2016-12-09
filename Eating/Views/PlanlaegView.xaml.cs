@@ -37,5 +37,10 @@ namespace Eating.Views
             ResultTextBlock.Text = "Menu er oprettet";
            
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            ResultTextBlock.Text = "Menu er nu fjernet fra listen";
+        }
     }
 }

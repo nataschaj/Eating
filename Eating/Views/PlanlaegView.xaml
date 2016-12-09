@@ -41,8 +41,8 @@
         <Button x:Name="Afregn" Content="Afregning" HorizontalAlignment="Left" Margin="480,931,0,0" VerticalAlignment="Top" Height="83" Width="160" Foreground="White" Background="#FF9D2D2C" Grid.Row="1"/>
 
 
-        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="413,102,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}" Click="button1_Click"/>
-        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="500,102,0,0" VerticalAlignment="Top" Command="{Binding RemoveMenuCommand}" Click="button1_Click"/>
+        <Button x:Name="button1" Content="Gem" HorizontalAlignment="Left" Margin="412,140,0,0" VerticalAlignment="Top" Command="{Binding AddMenu}" Click="button1_Click"/>
+        <Button x:Name="delete" Content="Delete" HorizontalAlignment="Left" Margin="497,140,0,0" VerticalAlignment="Top" Command="{Binding RemoveMenuCommand}" Click="button2_Click"/>
 
         <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="245" Margin="53,160,0,0" VerticalAlignment="Top" Width="257" ItemsSource="{Binding PlanlaegListe}">
 
@@ -93,7 +93,7 @@
 
             </StackPanel>
             <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="494,142,0,0" TextWrapping="Wrap" Text="" FontSize="24" VerticalAlignment="Top" />
-            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="93,584,0,0" TextWrapping="Wrap" Text="{Binding SelectedMenu}" VerticalAlignment="Top" SelectionChanged="textBlock_SelectionChanged"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="93,584,0,0" TextWrapping="Wrap" Text="{Binding SelectedMenu}" VerticalAlignment="Top"/>
         </Grid>
 
         <ListView x:Name="listView" ItemsSource="{Binding PlanlaegListe}" SelectedItem="{Binding SelectedMenu, Mode=TwoWay}" HorizontalAlignment="Left" Height="411" Margin="0,140,0,0" VerticalAlignment="Top" Width="234" >
