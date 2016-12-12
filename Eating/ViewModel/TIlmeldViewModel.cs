@@ -19,21 +19,41 @@ namespace Eating.ViewModel
         /*Properties*/
         public Model.Bolig NyBolig { get; set; }
         public Model.TilmeldListe TimmeldListenMandag { get; set; }
+        public Model.TilmeldListe TimmeldListenTirsdag { get; set; }
         public AddCommand AddMandag { get; set; }
+        public AddCommand AddTirsdag { get; set; }
 
 
         /*Constructor*/
         public TIlmeldViewModel()
         {
             TimmeldListenMandag = new Model.TilmeldListe();
+            TimmeldListenTirsdag = new Model.TilmeldListe();
             NyBolig = new Model.Bolig();
             AddMandag = new AddCommand(AddDay);
+            AddTirsdag = new AddCommand(AddDayTirsdag);
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
         }
 
+  
+
 
         /*Methodes */
+        public void AddDayTirsdag()
+        {
+            var tempDay = new Model.Bolig();
+            tempDay.HusNr = NyBolig.HusNr;
+            tempDay.NumberAdults = NyBolig.NumberAdults;
+            tempDay.NumberKidsZeroThree = NyBolig.NumberKidsZeroThree;
+            tempDay.NumberKidsFourSix = NyBolig.NumberKidsFourSix;
+            tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
+            TimmeldListenTirsdag.Add(tempDay);
+        
+        }
+
+
+
         public void AddDay()
         {
             var tempDay = new Model.Bolig();
