@@ -92,17 +92,74 @@
 
         <!-- GRID FOR Uge lister -->
         <Grid x:Name="ThirdRowLists" Grid.Column="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="293*"/>
+                <ColumnDefinition Width="27*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Mandag" Grid.Row="0" TextAlignment="Center" FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListen}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                <TextBlock Text="{Binding HusNr}" Grid.Column="0"/>
+                <TextBlock Text="{Binding NumberAdults}" Grid.Column="1"/>
+                <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"/>
+                <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"/>
+                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4"/>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Mandag" Grid.Row="0" TextAlignment="Center" FontSize="33"/>
-            <ListView x:Name="Mandag" Grid.Row="1"  ItemsSource="{Binding TimmeldListen}" />
-
+            <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="2" TextAlignment="Center" FontSize="33"/>
+            <TextBlock Text="Hus Nr" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="Nr adults" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Text="Børn 0-3" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock Text="Børn 0-4" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Text="Børn 5-15" Grid.Row="1" Grid.Column="4"/>
+        
+-->
         </Grid>
-
-
         <!-- GRID FOR NAVIGATION -->
         <Grid x:Name="FourthRowNav" Grid.Column="0" Grid.Row="3"  VerticalAlignment="Bottom">
             <Grid x:Name="Fields" >
