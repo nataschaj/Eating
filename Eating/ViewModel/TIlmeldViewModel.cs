@@ -13,6 +13,7 @@ namespace Eating.ViewModel
 
         StorageFolder localfolder = null;
         private readonly string filnavn = "mandagJson.json";
+        private readonly string filnavnTirsdag = "TirsdagJson.json";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,25 +35,13 @@ namespace Eating.ViewModel
             AddTirsdag = new AddCommand(AddDayTirsdag);
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
+            HentDataFraDiskAsyncTirsdag();
         }
 
   
 
 
         /*Methodes */
-        public void AddDayTirsdag()
-        {
-            var tempDay = new Model.Bolig();
-            tempDay.HusNr = NyBolig.HusNr;
-            tempDay.NumberAdults = NyBolig.NumberAdults;
-            tempDay.NumberKidsZeroThree = NyBolig.NumberKidsZeroThree;
-            tempDay.NumberKidsFourSix = NyBolig.NumberKidsFourSix;
-            tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
-            TimmeldListenTirsdag.Add(tempDay);
-        
-        }
-
-
 
         public void AddDay()
         {
@@ -91,6 +80,48 @@ namespace Eating.ViewModel
                   await messageDialog.ShowAsync(); 
                   */
             }
+
+
         }
+
+        /*Tirsdag*/
+        public void AddDayTirsdag()
+        {
+            var tempDay = new Model.Bolig();
+            tempDay.HusNr = NyBolig.HusNr;
+            tempDay.NumberAdults = NyBolig.NumberAdults;
+            tempDay.NumberKidsZeroThree = NyBolig.NumberKidsZeroThree;
+            tempDay.NumberKidsFourSix = NyBolig.NumberKidsFourSix;
+            tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
+            TimmeldListenTirsdag.Add(tempDay);
+            GemDataTilDiskAsyncTirsdag();
+        }
+        public async void GemDataTilDiskAsyncTirsdag()
+        {
+            string jsonText = this.TimmeldListenTirsdag.getJson();
+            StorageFile file = await localfolder.CreateFileAsync(filnavnTirsdag, CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(file, jsonText);
+        }
+
+        public async void HentDataFraDiskAsyncTirsdag()
+        {
+            // this.Wodliste.Clear();
+            try
+            {
+                StorageFile file = await localfolder.GetFileAsync(filnavnTirsdag);
+                string jsonText = await FileIO.ReadTextAsync(file);
+                this.TimmeldListenTirsdag.Clear();
+                TimmeldListenTirsdag.IndsetJson(jsonText);
+            }
+            catch (Exception)
+            {/*
+                 MessageDialog messageDialog = new MessageDialog("Ændret filnavn eller har du ikke gemt ?", "Filnavn");
+                  await messageDialog.ShowAsync(); 
+                  */
+            }
+
+
+        }
+
     }
 }

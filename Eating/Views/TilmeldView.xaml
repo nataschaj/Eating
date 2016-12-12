@@ -74,40 +74,37 @@
             </Grid.RowDefinitions>
          
             <!-- ListView for Mandag -->
-            <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
 
-                            <TextBlock Text="{Binding HusNr}" Grid.Column="0" TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberAdults}" Grid.Column="1" TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
-                            <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
-
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-      
-        </Grid>
+                                <TextBlock Text="{Binding HusNr}" Grid.Column="0" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberAdults}" Grid.Column="1" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
 
         <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
         <Grid x:Name="SecondRowFields" Grid.Column="0" Grid.Row="3">
