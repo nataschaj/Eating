@@ -12,7 +12,7 @@
     <Page.DataContext>
         <ViewModel:MainViewModel/>
     </Page.DataContext>
-
+    <ScrollViewer>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <Grid.ColumnDefinitions>
@@ -24,16 +24,18 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+       
         <!-- GRID FOR HEADER -->
         <Grid x:Name="FirstRowHeader" Grid.Column="0" Grid.Row="0"  Background="#FF9D2D2C" VerticalAlignment="top" >
             <TextBlock Text="Menu" Padding="15" TextAlignment="Center" Foreground="White"/>
         </Grid>
         
+       
         
         <!-- LISTVIEW -->
         <Grid Grid.Row="1">
-            <ListView x:Name="listView" ItemsSource="{Binding PlanlaegListe}" HorizontalAlignment="Stretch"  Grid.RowSpan="2" >
+            
+                <ListView x:Name="listView" ItemsSource="{Binding PlanlaegListe}" HorizontalAlignment="Stretch"  Grid.RowSpan="2" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
 
@@ -77,6 +79,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+          
         </Grid>
 
 
@@ -198,4 +201,5 @@
 
 
     </Grid>
+    </ScrollViewer>
 </Page>
