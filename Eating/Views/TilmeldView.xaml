@@ -13,67 +13,133 @@
         <ViewModel:TIlmeldViewModel/>
     </Page.DataContext>
     <ScrollViewer>
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  x:Name="MainGrid">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  x:Name="MainGrid">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-
-        <!-- GRID FOR HEADER -->
-        <Grid x:Name="FirstRowHeader" Grid.Column="0" Grid.Row="0"  Background="#FF9D2D2C" VerticalAlignment="top" >
-            <TextBlock Text="TIlmeld" Padding="15" TextAlignment="Center" Foreground="White"/>
-        </Grid>
-
-        
-        <!--Mamdag -->
-        <Grid x:Name="Mandag" Grid.Column="0" Grid.Row="1">
-            <Grid x:Name="InsertFieldss">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="husNr"/>
-                    <ColumnDefinition x:Name="nrAdults"/>
-                    <ColumnDefinition x:Name="kids03"/>
-                    <ColumnDefinition x:Name="kids46"/>
-                    <ColumnDefinition x:Name="kids715"/>
-                </Grid.ColumnDefinitions>
-
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
-                <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-            </Grid>
-        </Grid>
-
-        <!-- GRID FOR Uge lister -->
-        <Grid x:Name="ThirdRowLists" Grid.Column="0" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-         
-            <!-- ListView for Mandag -->
+
+
+            <!-- GRID FOR HEADER -->
+            <Grid x:Name="FirstRowHeader" Grid.Column="0" Grid.Row="0"  Background="#FF9D2D2C" VerticalAlignment="top" >
+                <TextBlock Text="TIlmeld" Padding="15" TextAlignment="Center" Foreground="White"/>
+            </Grid>
+
+            <!-- Grid for insertfields and buttons  -->
+            <Grid x:Name="DayButtons" Grid.Row="1">
+                <Grid x:Name="InsertFieldsMain">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrMain"/>
+                        <ColumnDefinition x:Name="nrAdultsMain"/>
+                        <ColumnDefinition x:Name="kids03Main"/>
+                        <ColumnDefinition x:Name="kids46Main"/>
+                        <ColumnDefinition x:Name="kids715Main"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Insert Fields" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
+                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                </Grid>
+
+
+
+            </Grid>
+
+            <Grid x:Name="SecondRowFieldsss" Grid.Column="0" Grid.Row="2">
+                <Grid x:Name="InsertFieldsss">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrIs"/>
+                        <ColumnDefinition x:Name="nrAdultsIs"/>
+                        <ColumnDefinition x:Name="kids03Is"/>
+                        <ColumnDefinition x:Name="kids46Is"/>
+                        <ColumnDefinition x:Name="kids715Is"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                <TextBlock Text="Nr adults" Grid.Column="1"/>
+                <TextBlock Text="Børn 0-3" Grid.Column="2"/>
+                <TextBlock Text="Børn 0-4" Grid.Column="3"/>
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+
+                    <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsZeroThree, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsFourSix, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NUmberKidsSevenFifteen, Mode=TwoWay}" Grid.Column="4" Grid.Row="1"/>
+                    <Button Grid.Column="4" Grid.Row="3" Content="Tilmeld Torsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddMandag}"/>
+                    <Button Grid.Column="3" Grid.Row="3" Content="Tilmeld Onsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddTirsdag}"/>
+                    <Button Grid.Column="2" Grid.Row="3" Content="Tilmeld Tirsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddTirsdag}"/>
+                    <Button Grid.Column="1" Grid.Row="3" Content="Tilmeld Mandag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddMandag}"/>
+                </Grid>
+            </Grid>
+
+
+            <!--Mandag -->
+            <Grid x:Name="Mandag" Grid.Column="0" Grid.Row="3">
+                <Grid x:Name="InsertFieldss">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNr" Width="85*"/>
+                        <ColumnDefinition Width="43*"/>
+                        <ColumnDefinition x:Name="nrAdults" Width="128*"/>
+                        <ColumnDefinition x:Name="kids03" Width="128*"/>
+                        <ColumnDefinition x:Name="kids46" Width="128*"/>
+                        <ColumnDefinition x:Name="kids715" Width="128*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"  />
+                    <TextBlock Text="Nr adults" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-3" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-4" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 5-15" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                </Grid>
+            </Grid>
+
+            <!-- GRID FOR Uge lister -->
+            <Grid x:Name="ThirdRowLists" Grid.Column="0" Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- ListView for Mandag -->
                 <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
@@ -106,174 +172,240 @@
                 </ListView>
             </Grid>
 
-        <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
-        <Grid x:Name="SecondRowFields" Grid.Column="0" Grid.Row="3">
-            <Grid x:Name="InsertFields">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="husNrI"/>
-                    <ColumnDefinition x:Name="nrAdultsI"/>
-                    <ColumnDefinition x:Name="kids03I"/>
-                    <ColumnDefinition x:Name="kids46I"/>
-                    <ColumnDefinition x:Name="kids715I"/>
-                </Grid.ColumnDefinitions>
+            <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
+            <!--<Grid x:Name="SecondRowFields" Grid.Column="0" Grid.Row="5">
+                <Grid x:Name="InsertFields">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrI"/>
+                        <ColumnDefinition x:Name="nrAdultsI"/>
+                        <ColumnDefinition x:Name="kids03I"/>
+                        <ColumnDefinition x:Name="kids46I"/>
+                        <ColumnDefinition x:Name="kids715I"/>
+                    </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
 
-                <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberKidsZeroThree, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberKidsFourSix, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NUmberKidsSevenFifteen, Mode=TwoWay}" Grid.Column="4" Grid.Row="1"/>
-                <Button Grid.Column="4" Grid.Row="3" Content="Tilmeld Mandag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddMandag}"/>
+                    <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsZeroThree, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsFourSix, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NUmberKidsSevenFifteen, Mode=TwoWay}" Grid.Column="4" Grid.Row="1"/>
+                    <Button Grid.Column="4" Grid.Row="3" Content="Tilmeld Mandag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddMandag}"/>
                     <Button Grid.Column="3" Grid.Row="3" Content="Tilmeld Tirsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddTirsdag}"/>
                 </Grid>
-        </Grid>
+            </Grid>-->
 
 
 
 
 
-        <!--Tirsdag -->
-        <Grid x:Name="Tirsdag" Grid.Column="0" Grid.Row="4">
-            <Grid x:Name="InsertFieldsTirsdag">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="husNrTirsdag"/>
-                    <ColumnDefinition x:Name="nrAdultsTirsdag"/>
-                    <ColumnDefinition x:Name="kids03Tirsdag"/>
-                    <ColumnDefinition x:Name="kids46Tirsdag"/>
-                    <ColumnDefinition x:Name="kids715Tirsdag"/>
-                </Grid.ColumnDefinitions>
+            <!--Tirsdag -->
+            <Grid x:Name="Tirsdag" Grid.Column="0" Grid.Row="6">
+                <Grid x:Name="InsertFieldsTirsdag">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrTirsdag"/>
+                        <ColumnDefinition x:Name="nrAdultsTirsdag"/>
+                        <ColumnDefinition x:Name="kids03Tirsdag"/>
+                        <ColumnDefinition x:Name="kids46Tirsdag"/>
+                        <ColumnDefinition x:Name="kids715Tirsdag"/>
+                    </Grid.ColumnDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <TextBlock Text="Tirsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
-                <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Tirsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
+                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                </Grid>
             </Grid>
-        </Grid>
 
-        <!-- GRID FOR Uge lister -->
-        <Grid x:Name="ThirdRowListsTirsdag" Grid.Column="0" Grid.Row="5">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-
-            <!-- ListView for tirsdag -->
-            <ListView Grid.Row="5" ItemsSource="{Binding TimmeldListenTirsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid >
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Text="{Binding HusNr}" Grid.Column="0" TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberAdults}" Grid.Column="1" TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
-                            <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
-                            <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
-
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-
-        </Grid>
-
-        <!-- GRID FOR INDSTASTNING OG GEM KNAP tirsdag -->
-        <Grid x:Name="SecondRowFieldsTirsdag" Grid.Column="0" Grid.Row="6">
-            <Grid x:Name="InsertFieldsSecondTirsdag">
+            <!-- GRID FOR Uge lister -->
+            <Grid x:Name="ThirdRowListsTirsdag" Grid.Column="0" Grid.Row="7">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition x:Name="husNrSecondTirsdag"/>
-                    <ColumnDefinition x:Name="nrAdultsSecondTirsdag"/>
-                    <ColumnDefinition x:Name="kids03SecondTirsdag"/>
-                    <ColumnDefinition x:Name="kids46SecondTirsdag"/>
-                    <ColumnDefinition x:Name="kids715SecondTirsdag"/>
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+
+                <!-- ListView for tirsdag -->
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTirsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{Binding HusNr}" Grid.Column="0" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberAdults}" Grid.Column="1" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+
+            <!-- GRID FOR INDSTASTNING OG GEM KNAP tirsdag -->
+            <!--<Grid x:Name="SecondRowFieldsTirsdag" Grid.Column="0" Grid.Row="8">
+                <Grid x:Name="InsertFieldsSecondTirsdag">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrSecondTirsdag"/>
+                        <ColumnDefinition x:Name="nrAdultsSecondTirsdag"/>
+                        <ColumnDefinition x:Name="kids03SecondTirsdag"/>
+                        <ColumnDefinition x:Name="kids46SecondTirsdag"/>
+                        <ColumnDefinition x:Name="kids715SecondTirsdag"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
 
-                <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberKidsZeroThree, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NumberKidsFourSix, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
-                <TextBox Text="{Binding NyBolig.NUmberKidsSevenFifteen, Mode=TwoWay}" Grid.Column="4" Grid.Row="1"/>
-                <Button Grid.Column="4" Grid.Row="3" Content="Tilmeld Tirsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddTirsdag}"/>
+                    <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsZeroThree, Mode=TwoWay}" Grid.Column="2" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NumberKidsFourSix, Mode=TwoWay}" Grid.Column="3" Grid.Row="1"/>
+                    <TextBox Text="{Binding NyBolig.NUmberKidsSevenFifteen, Mode=TwoWay}" Grid.Column="4" Grid.Row="1"/>
+                    <Button Grid.Column="4" Grid.Row="3" Content="Tilmeld Tirsdag" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Command="{Binding AddTirsdag}"/>
+                </Grid>
+            </Grid>-->
+
+            <!--Onsdag -->
+            <Grid x:Name="Onsdag" Grid.Column="0" Grid.Row="8">
+                <Grid x:Name="InsertFieldsOnsdag">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition x:Name="husNrOnsdag"/>
+                        <ColumnDefinition x:Name="nrAdultsOnsdag"/>
+                        <ColumnDefinition x:Name="kids03Onsdag"/>
+                        <ColumnDefinition x:Name="kids46Onsdag"/>
+                        <ColumnDefinition x:Name="kids715Onsdag"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Onsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
+                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                </Grid>
             </Grid>
-        </Grid>
 
-
-
-
-        <!-- GRID FOR NAVIGATION -->
-        <Grid x:Name="FourthRowNav" Grid.Column="0" Grid.Row="7"  VerticalAlignment="Bottom">
-            <Grid x:Name="Fields" >
+            <!-- GRID FOR Uge lister -->
+            <Grid x:Name="ThirdRowListsOnsdag" Grid.Column="0" Grid.Row="9">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <Interactivity:Interaction.Behaviors>
-                        <Core:EventTriggerBehavior EventName="Click">
-                            <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
-                        </Core:EventTriggerBehavior>
-                    </Interactivity:Interaction.Behaviors>
-                </Button>
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="1" Content="Planlæg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <!-- ListView for tirsdag -->
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTirsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Text="{Binding HusNr}" Grid.Column="0" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberAdults}" Grid.Column="1" TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
+                                <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
 
+
+            <!-- GRID FOR NAVIGATION -->
+            <Grid x:Name="FourthRowNav" Grid.Column="0" Grid.Row="11"  VerticalAlignment="Bottom">
+                <Grid x:Name="Fields" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
+                    <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="1" Content="Planlæg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                </Grid>
+
+            </Grid>
+
+
+
+
+
         </Grid>
-
-
-
-
-
-    </Grid>
     </ScrollViewer>
 </Page>
