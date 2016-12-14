@@ -353,7 +353,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- ListView for onsdag -->
-                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenOnsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenOnsdag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -384,7 +384,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromOnsdagList}" ></Button>
             </Grid>
 
 
@@ -426,7 +426,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- ListView for tirsdag -->
-                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTorsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTorsdag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -456,7 +456,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromTorsdagList}" ></Button>
             </Grid>
 
 

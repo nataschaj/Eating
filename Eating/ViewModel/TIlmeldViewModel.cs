@@ -32,6 +32,7 @@ namespace Eating.ViewModel
         public RemoveMenuCommand RemoveFromMandagList { get; set; }
         public RemoveMenuCommand RemoveFromTirsdagList { get; set; }
         public RemoveMenuCommand RemoveFromOnsdagList { get; set; }
+        public RemoveMenuCommand RemoveFromTorsdagList { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -63,6 +64,7 @@ namespace Eating.ViewModel
             RemoveFromMandagList = new RemoveMenuCommand(RemoveMandagListItem);
             RemoveFromTirsdagList = new RemoveMenuCommand(RemoveTirsdagListItem);
             RemoveFromOnsdagList = new RemoveMenuCommand(RemoveOnsdagListItem);
+            RemoveFromTorsdagList = new RemoveMenuCommand(RemoveTorsdagListItem);
 
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
@@ -136,7 +138,7 @@ namespace Eating.ViewModel
         public void RemoveTirsdagListItem()
         {
             TimmeldListenTirsdag.Remove(SelectedDagItem);
-            GemDataTilDiskAsync();
+            GemDataTilDiskAsyncTirsdag();
         }
 
         public async void GemDataTilDiskAsyncTirsdag()
@@ -178,6 +180,13 @@ namespace Eating.ViewModel
             TimmeldListenOnsdag.Add(tempDay);
             GemDataTilDiskAsyncOnsdag();
         }
+
+        public void RemoveOnsdagListItem()
+        {
+            TimmeldListenOnsdag.Remove(SelectedDagItem);
+            GemDataTilDiskAsyncOnsdag();
+        }
+
         public async void GemDataTilDiskAsyncOnsdag()
         {
             string jsonText = this.TimmeldListenOnsdag.getJson();
@@ -214,6 +223,12 @@ namespace Eating.ViewModel
             tempDay.NumberKidsFourSix = NyBolig.NumberKidsFourSix;
             tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
             TimmeldListenTorsdag.Add(tempDay);
+            GemDataTilDiskAsyncTorsdag();
+        }
+
+        public void RemoveTorsdagListItem()
+        {
+            TimmeldListenTorsdag.Remove(SelectedDagItem);
             GemDataTilDiskAsyncTorsdag();
         }
         public async void GemDataTilDiskAsyncTorsdag()
