@@ -108,12 +108,12 @@
             <Grid x:Name="Mandag" Grid.Column="0" Grid.Row="3">
                 <Grid x:Name="InsertFieldss">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="husNr" Width="85*"/>
-                        <ColumnDefinition Width="43*"/>
-                        <ColumnDefinition x:Name="nrAdults" Width="128*"/>
-                        <ColumnDefinition x:Name="kids03" Width="128*"/>
-                        <ColumnDefinition x:Name="kids46" Width="128*"/>
-                        <ColumnDefinition x:Name="kids715" Width="128*"/>
+                        <ColumnDefinition x:Name="husNr"/>
+                     
+                        <ColumnDefinition x:Name="nrAdults" />
+                        <ColumnDefinition x:Name="kids03"/>
+                        <ColumnDefinition x:Name="kids46" />
+                        <ColumnDefinition x:Name="kids715"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -122,18 +122,19 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2" />
-                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"  />
-                    <TextBlock Text="Nr adults" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                    <TextBlock Text="Børn 0-3" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                    <TextBlock Text="Børn 0-4" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
-                    <TextBlock Text="Børn 5-15" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"   />
+                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                 </Grid>
             </Grid>
 
             <!-- GRID FOR Uge lister -->
             <Grid x:Name="ThirdRowLists" Grid.Column="0" Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
+                    <ColumnDefinition  />
+                   
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -143,7 +144,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- ListView for Mandag -->
-                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView Grid.Row="0" ItemsSource="{Binding TimmeldListenMandag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,32.8" Grid.RowSpan="2">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -173,7 +174,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}"  ></Button>
+                <TextBlock Text="{Binding testCount}"></TextBlock>
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
@@ -192,11 +194,13 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                    -->
+            <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+            <!--
 
                     <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                     <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
@@ -300,11 +304,13 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                    -->
+            <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+            <!--
 
                     <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                     <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
@@ -404,7 +410,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Torsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Torsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="3" Margin="72,-10,56,10"/>
                     <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
                     <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
@@ -490,7 +496,7 @@
                     <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
             </Grid>
-            
+
         </Grid>
     </ScrollViewer>
 </Page>

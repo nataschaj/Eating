@@ -16,6 +16,8 @@ namespace Eating.ViewModel
         private readonly string filnavnTirsdag = "TirsdagJson.json";
         private readonly string filnavnOnsdag = "OnsdagJson.json";
         private readonly string filnavnTorsdag = "TorsdagJson.json";
+      
+     
 
      
 
@@ -33,7 +35,6 @@ namespace Eating.ViewModel
         public RemoveMenuCommand RemoveFromTirsdagList { get; set; }
         public RemoveMenuCommand RemoveFromOnsdagList { get; set; }
         public RemoveMenuCommand RemoveFromTorsdagList { get; set; }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Model.Bolig _selectedDagItem;
@@ -46,11 +47,20 @@ namespace Eating.ViewModel
             }
         }
 
+        public int testCount
+        {
+            get
+            {
+                return TimmeldListenMandag.Sum(p => p.NumberAdults);
+            }
+        }
+
 
 
         /*Constructor*/
         public TIlmeldViewModel()
         {
+            
             _selectedDagItem = new Model.Bolig();
             TimmeldListenMandag = new Model.TilmeldListe();
             TimmeldListenTirsdag = new Model.TilmeldListe();
@@ -71,6 +81,9 @@ namespace Eating.ViewModel
             HentDataFraDiskAsyncTirsdag();
             HentDataFraDiskAsyncOnsdag();
             HentDataFraDiskAsyncTorsdag();
+        
+
+
         }
 
 
@@ -89,14 +102,24 @@ namespace Eating.ViewModel
             tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
             TimmeldListenMandag.Add(tempDay);
             GemDataTilDiskAsync();
+
+            OnPropertyChanged("testCount");
         }
 
         public  void RemoveMandagListItem()
         {
             TimmeldListenMandag.Remove(SelectedDagItem);
             GemDataTilDiskAsync();
+            OnPropertyChanged("testCount");
         }
-       
+
+        //public async void jsonTest()
+        //{
+        //    StorageFile file = await localfolder.GetFileAsync(filnavn);
+        //    string jsonText = await FileIO.ReadTextAsync(file);
+        //    jsonText.Count();
+        // }
+
         public async void GemDataTilDiskAsync()
         {
             string jsonText = this.TimmeldListenMandag.getJson();
@@ -113,6 +136,7 @@ namespace Eating.ViewModel
                 string jsonText = await FileIO.ReadTextAsync(file);
                 this.TimmeldListenMandag.Clear();
                 TimmeldListenMandag.IndsetJson(jsonText);
+                OnPropertyChanged("testCount");
             }
             catch (Exception)
             {/*
@@ -147,6 +171,8 @@ namespace Eating.ViewModel
             StorageFile file = await localfolder.CreateFileAsync(filnavnTirsdag, CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(file, jsonText);
         }
+
+
 
         public async void HentDataFraDiskAsyncTirsdag()
         {
