@@ -8,21 +8,9 @@ using Windows.Storage;
 
 namespace Eating.ViewModel
 {
-    class AfregningViewModel : INotifyPropertyChanged
+    public class AfregningViewModel : INotifyPropertyChanged
     {
-        public int pris { get; set; }
-
-
-        public AfregningViewModel()
-        {
-            this.pris = pris;
-        }
-
-
-
-
-
-
+        
 
 
         public event PropertyChangedEventHandler PropertyChanged;
