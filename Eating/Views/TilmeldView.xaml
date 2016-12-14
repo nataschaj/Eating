@@ -121,7 +121,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
+                    <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2" />
                     <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"  />
                     <TextBlock Text="Nr adults" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
@@ -139,10 +139,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <!-- ListView for Mandag -->
-                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenMandag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -172,6 +173,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
@@ -244,10 +246,11 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <!-- ListView for tirsdag -->
-                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTirsdag}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
+                <ListView Grid.Row="1" ItemsSource="{Binding TimmeldListenTirsdag}" SelectedItem="{Binding SelectedDagItem, Mode= TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -278,6 +281,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromTirsdagList}" ></Button>
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP tirsdag -->
@@ -345,6 +349,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
 
                 <!-- ListView for onsdag -->
@@ -379,10 +384,11 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
             </Grid>
 
 
-            <!--Onsdag -->
+            <!--Torsdag -->
             <Grid x:Name="Torsdag" Grid.Column="0" Grid.Row="10">
                 <Grid x:Name="InsertFieldsTorsdag">
                     <Grid.ColumnDefinitions>
@@ -414,6 +420,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -449,6 +456,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
             </Grid>
 
 

@@ -17,7 +17,7 @@ namespace Eating.ViewModel
         private readonly string filnavnOnsdag = "OnsdagJson.json";
         private readonly string filnavnTorsdag = "TorsdagJson.json";
 
-        public event PropertyChangedEventHandler PropertyChanged;
+     
 
         /*Properties*/
         public Model.Bolig NyBolig { get; set; }
@@ -29,11 +29,28 @@ namespace Eating.ViewModel
         public AddCommand AddTirsdag { get; set; }
         public AddCommand AddOnsdag { get; set; }
         public AddCommand AddTorsdag { get; set; }
+        public RemoveMenuCommand RemoveFromMandagList { get; set; }
+        public RemoveMenuCommand RemoveFromTirsdagList { get; set; }
+        public RemoveMenuCommand RemoveFromOnsdagList { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Model.Bolig _selectedDagItem;
+
+        public Model.Bolig SelectedDagItem
+        {
+            get { return _selectedDagItem; }
+            set { _selectedDagItem = value;
+                OnPropertyChanged(nameof(SelectedDagItem));
+            }
+        }
+
 
 
         /*Constructor*/
         public TIlmeldViewModel()
         {
+            _selectedDagItem = new Model.Bolig();
             TimmeldListenMandag = new Model.TilmeldListe();
             TimmeldListenTirsdag = new Model.TilmeldListe();
             TimmeldListenOnsdag = new Model.TilmeldListe();
@@ -43,6 +60,10 @@ namespace Eating.ViewModel
             AddTirsdag = new AddCommand(AddDayTirsdag);
             AddOnsdag = new AddCommand(AddDayOnsdag);
             AddTorsdag = new AddCommand(AddDayTorsdag);
+            RemoveFromMandagList = new RemoveMenuCommand(RemoveMandagListItem);
+            RemoveFromTirsdagList = new RemoveMenuCommand(RemoveTirsdagListItem);
+            RemoveFromOnsdagList = new RemoveMenuCommand(RemoveOnsdagListItem);
+
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
             HentDataFraDiskAsyncTirsdag();
@@ -68,7 +89,11 @@ namespace Eating.ViewModel
             GemDataTilDiskAsync();
         }
 
-
+        public  void RemoveMandagListItem()
+        {
+            TimmeldListenMandag.Remove(SelectedDagItem);
+            GemDataTilDiskAsync();
+        }
        
         public async void GemDataTilDiskAsync()
         {
@@ -93,8 +118,6 @@ namespace Eating.ViewModel
                   await messageDialog.ShowAsync(); 
                   */
             }
-
-
         }
 
         /*Tirsdag*/
@@ -109,6 +132,13 @@ namespace Eating.ViewModel
             TimmeldListenTirsdag.Add(tempDay);
             GemDataTilDiskAsyncTirsdag();
         }
+
+        public void RemoveTirsdagListItem()
+        {
+            TimmeldListenTirsdag.Remove(SelectedDagItem);
+            GemDataTilDiskAsync();
+        }
+
         public async void GemDataTilDiskAsyncTirsdag()
         {
             string jsonText = this.TimmeldListenTirsdag.getJson();
@@ -211,6 +241,15 @@ namespace Eating.ViewModel
             }
 
 
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this,
+                    new PropertyChangedEventArgs(propertyName));
+            }
         }
 
     }
