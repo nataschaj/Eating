@@ -60,7 +60,7 @@
                     </Grid.RowDefinitions>
                     <TextBlock Text="Insert Fields" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
                     <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Voksne" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
@@ -108,12 +108,13 @@
             <Grid x:Name="Mandag" Grid.Column="0" Grid.Row="3">
                 <Grid x:Name="InsertFieldss">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition x:Name="husNr" Width="85*"/>
-                        <ColumnDefinition Width="43*"/>
-                        <ColumnDefinition x:Name="nrAdults" Width="128*"/>
-                        <ColumnDefinition x:Name="kids03" Width="128*"/>
-                        <ColumnDefinition x:Name="kids46" Width="128*"/>
-                        <ColumnDefinition x:Name="kids715" Width="128*"/>
+                        <ColumnDefinition x:Name="husNr" />
+                        <ColumnDefinition x:Name="pris" Width="85*"/>
+                        <ColumnDefinition Width="85*"/>
+                        <ColumnDefinition x:Name="nrAdults" Width="85*"/>
+                        <ColumnDefinition x:Name="kids03" Width="85*"/>
+                        <ColumnDefinition x:Name="kids46" Width="85*"/>
+                        <ColumnDefinition x:Name="kids715" Width="85*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -122,11 +123,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2" />
-                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"  />
-                    <TextBlock Text="Nr adults" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Hus Nr" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Grid.ColumnSpan="2"  />
+                    <TextBlock Text="Voksne" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" Width="80" />
                     <TextBlock Text="Børn 0-3" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-4" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 5-15" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="pris" Grid.Column="6" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                 </Grid>
             </Grid>
 
@@ -154,6 +156,7 @@
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
+                                    <ColumnDefinition/>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -169,11 +172,11 @@
                                 <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
                                 <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
                                 <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="5" TextAlignment="Center"  />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" ></Button>
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->
@@ -192,11 +195,13 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                    -->
+            <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+            <!--
 
                     <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                     <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
@@ -217,6 +222,7 @@
                 <Grid x:Name="InsertFieldsTirsdag">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="husNrTirsdag"/>
+                        <ColumnDefinition x:Name="Pris"/>
                         <ColumnDefinition x:Name="nrAdultsTirsdag"/>
                         <ColumnDefinition x:Name="kids03Tirsdag"/>
                         <ColumnDefinition x:Name="kids46Tirsdag"/>
@@ -229,11 +235,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Tirsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
-                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Hus Nr" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center" Width="49.12353515625"  />
+                    <TextBlock Text="Voksne" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Pris" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                 </Grid>
             </Grid>
 
@@ -261,6 +268,7 @@
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
+                                    <ColumnDefinition/>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -276,12 +284,12 @@
                                 <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
                                 <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
                                 <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="5" TextAlignment="Center"  />
 
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromTirsdagList}" ></Button>
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP tirsdag -->
@@ -300,11 +308,13 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    --><!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
+                    -->
+            <!--<TextBlock Text="Hus Nr" Grid.Column="0"/>
                 <TextBlock Text="Nr adults" Grid.Column="1"/>
                 <TextBlock Text="Børn 0-3" Grid.Column="2"/>
                 <TextBlock Text="Børn 0-4" Grid.Column="3"/>
-                <TextBlock Text="Børn 5-15" Grid.Column="4"/>--><!--
+                <TextBlock Text="Børn 5-15" Grid.Column="4"/>-->
+            <!--
 
                     <TextBox Text="{Binding NyBolig.HusNr, Mode=TwoWay}" Grid.Column="0" Grid.Row="1"/>
                     <TextBox Text="{Binding NyBolig.NumberAdults, Mode=TwoWay}" Grid.Column="1" Grid.Row="1"/>
@@ -320,6 +330,7 @@
                 <Grid x:Name="InsertFieldsOnsdag">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="husNrOnsdag"/>
+                        <ColumnDefinition x:Name="PrisOnsdag"/>
                         <ColumnDefinition x:Name="nrAdultsOnsdag"/>
                         <ColumnDefinition x:Name="kids03Onsdag"/>
                         <ColumnDefinition x:Name="kids46Onsdag"/>
@@ -332,11 +343,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Onsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
-                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Hus Nr" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
+                    <TextBlock Text="Voksne" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Pris" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                 </Grid>
             </Grid>
 
@@ -368,6 +380,7 @@
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
+                                    <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
@@ -379,12 +392,12 @@
                                 <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
                                 <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
                                 <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="5" TextAlignment="Center"  />
 
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromOnsdagList}" ></Button>
             </Grid>
 
 
@@ -393,6 +406,7 @@
                 <Grid x:Name="InsertFieldsTorsdag">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="husNrTorsdag"/>
+                        <ColumnDefinition x:Name="PrisTorsdag"/>
                         <ColumnDefinition x:Name="nrAdultsTorsdag"/>
                         <ColumnDefinition x:Name="kids03Torsdag"/>
                         <ColumnDefinition x:Name="kids46Torsdag"/>
@@ -405,11 +419,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="Torsdag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2"/>
-                    <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
-                    <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Hus Nr" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"  />
+                    <TextBlock Text="Voksne" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-4" Grid.Column="3" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 5-15" Grid.Column="4" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
+                    <TextBlock Text="Pris" Grid.Column="5" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                 </Grid>
             </Grid>
 
@@ -437,6 +452,7 @@
                             <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition />
+                                    <ColumnDefinition/>
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
@@ -452,11 +468,11 @@
                                 <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
                                 <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
                                 <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                                <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="5" TextAlignment="Center"  />
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromTorsdagList}" ></Button>
             </Grid>
 
 
@@ -490,7 +506,7 @@
                     <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                 </Grid>
             </Grid>
-            
+
         </Grid>
     </ScrollViewer>
 </Page>

@@ -99,11 +99,15 @@
     <Compile Include="Model\PlanlaegListe.cs" />
     <Compile Include="Model\TilmeldListe.cs" />
     <Compile Include="ViewModel\AddCommand.cs" />
+    <Compile Include="ViewModel\AfregningViewModel.cs" />
     <Compile Include="ViewModel\hentCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RemoveMenuCommand.cs" />
     <Compile Include="ViewModel\saveCommand.cs" />
     <Compile Include="ViewModel\TIlmeldViewModel.cs" />
+    <Compile Include="Views\Afregning.xaml.cs">
+      <DependentUpon>Afregning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -138,6 +142,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\Afregning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
