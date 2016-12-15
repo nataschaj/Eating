@@ -47,11 +47,13 @@ namespace Eating.ViewModel
             }
         }
 
+        /*summen*/
         public int testCount
         {
             get
             {
-                return TimmeldListenMandag.Sum(p => p.NumberAdults);
+                /* return TimmeldListenMandag.Sum(p => p.NumberAdults);*/
+                return TimmeldListenMandag[0].NumberAdults;
             }
         }
 
@@ -75,15 +77,11 @@ namespace Eating.ViewModel
             RemoveFromTirsdagList = new RemoveMenuCommand(RemoveTirsdagListItem);
             RemoveFromOnsdagList = new RemoveMenuCommand(RemoveOnsdagListItem);
             RemoveFromTorsdagList = new RemoveMenuCommand(RemoveTorsdagListItem);
-
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
             HentDataFraDiskAsyncTirsdag();
             HentDataFraDiskAsyncOnsdag();
             HentDataFraDiskAsyncTorsdag();
-        
-
-
         }
 
 

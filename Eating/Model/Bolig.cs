@@ -14,7 +14,16 @@ namespace Eating.Model
         public int NumberKidsFourSix { get; set; }
         public int NUmberKidsSevenFifteen { get; set; }
 
+        public double KuvertProcentAdults { get; set; }
+        public double KuvertProcentZeroThree { get; set; }
+        public double KuvertProcentFourSIx { get; set; }
+        public double KuvertProcentSevenFifteen { get; set; }
 
+        public Bolig()
+        {
+            this.KuvertProcentAdults = 1;
+
+        }
 
         public override string ToString()
         {

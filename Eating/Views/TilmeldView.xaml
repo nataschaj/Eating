@@ -121,7 +121,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="3"  FontSize="33" Width="auto" Grid.ColumnSpan="2" />
+                    <TextBlock Text="Mandag" Grid.Row="0" Grid.Column="2"  FontSize="33" Width="auto" Grid.ColumnSpan="2" />
                     <TextBlock Text="Hus Nummar" Grid.Column="0" Grid.Row="1" FontWeight="Bold" TextAlignment="Center"   />
                     <TextBlock Text="Nr adults" Grid.Column="1" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
                     <TextBlock Text="Børn 0-3" Grid.Column="2" Grid.Row="1"  FontWeight="Bold" TextAlignment="Center" />
@@ -477,6 +477,7 @@
                         <ColumnDefinition />
                         <ColumnDefinition/>
                         <ColumnDefinition/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
                     <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -494,6 +495,13 @@
                         </Interactivity:Interaction.Behaviors>
                     </Button>
                     <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="3" Content="Afregn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Eating.Views.AfregningView"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+                    </Button>
                 </Grid>
             </Grid>
 

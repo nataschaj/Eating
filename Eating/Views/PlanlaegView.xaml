@@ -108,6 +108,7 @@
                     <ColumnDefinition />
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                        <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -131,7 +132,15 @@
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-            </Grid>
+                    <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="3" Content="Afregn" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Interactivity:Interaction.Behaviors>
+                            <Core:EventTriggerBehavior EventName="Click">
+                                <Core:NavigateToPageAction TargetPage="Eating.Views.AfregningView"/>
+                            </Core:EventTriggerBehavior>
+                        </Interactivity:Interaction.Behaviors>
+
+                    </Button>
+                </Grid>
 
         </Grid>
 
