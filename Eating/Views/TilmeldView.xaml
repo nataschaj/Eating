@@ -109,7 +109,7 @@
                 <Grid x:Name="InsertFieldss">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition x:Name="husNr"/>
-                     
+
                         <ColumnDefinition x:Name="nrAdults" />
                         <ColumnDefinition x:Name="kids03"/>
                         <ColumnDefinition x:Name="kids46" />
@@ -133,8 +133,9 @@
             <!-- GRID FOR Uge lister -->
             <Grid x:Name="ThirdRowLists" Grid.Column="0" Grid.Row="4">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition  />
-                   
+                    <ColumnDefinition Width="583*"  />
+                    <ColumnDefinition Width="57*"/>
+
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
@@ -144,7 +145,7 @@
                 </Grid.RowDefinitions>
 
                 <!-- ListView for Mandag -->
-                <ListView Grid.Row="0" ItemsSource="{Binding TimmeldListenMandag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,32.8" Grid.RowSpan="2">
+                <ListView Grid.Row="0" ItemsSource="{Binding TimmeldListenMandag}" SelectedItem="{Binding SelectedDagItem, Mode=TwoWay}" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,0,16.4">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -159,6 +160,7 @@
                                     <ColumnDefinition />
                                     <ColumnDefinition />
                                     <ColumnDefinition />
+                                    
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
@@ -170,12 +172,15 @@
                                 <TextBlock Text="{Binding NumberKidsZeroThree}" Grid.Column="2"  TextAlignment="Center" />
                                 <TextBlock Text="{Binding NumberKidsFourSix}" Grid.Column="3"  TextAlignment="Center" />
                                 <TextBlock Text="{ Binding NUmberKidsSevenFifteen}" Grid.Column="4" TextAlignment="Center"  />
+                       
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}"  ></Button>
-                <TextBlock Text="{Binding testCount}"></TextBlock>
+                <Button Grid.Row="2" Content="Fjern Tilmelding" HorizontalAlignment="Right" Command="{Binding RemoveFromMandagList}" Grid.ColumnSpan="2" Margin="0,0.2,0,-0.4"  ></Button>
+              
+
+             
             </Grid>
 
             <!-- GRID FOR INDSTASTNING OG GEM KNAP mandag -->

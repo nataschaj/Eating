@@ -102,6 +102,7 @@
     <Compile Include="ViewModel\AfregningViewModel.cs" />
     <Compile Include="ViewModel\hentCommand.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\PrisCommand.cs" />
     <Compile Include="ViewModel\RemoveMenuCommand.cs" />
     <Compile Include="ViewModel\saveCommand.cs" />
     <Compile Include="ViewModel\TIlmeldViewModel.cs" />

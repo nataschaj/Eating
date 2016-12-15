@@ -16,10 +16,10 @@ namespace Eating.ViewModel
         private readonly string filnavnTirsdag = "TirsdagJson.json";
         private readonly string filnavnOnsdag = "OnsdagJson.json";
         private readonly string filnavnTorsdag = "TorsdagJson.json";
-      
-     
 
-     
+
+       /* public double KuverterMandag;*/
+
 
         /*Properties*/
         public Model.Bolig NyBolig { get; set; }
@@ -35,6 +35,8 @@ namespace Eating.ViewModel
         public RemoveMenuCommand RemoveFromTirsdagList { get; set; }
         public RemoveMenuCommand RemoveFromOnsdagList { get; set; }
         public RemoveMenuCommand RemoveFromTorsdagList { get; set; }
+        public PrisCommand beregnPris { get; set; }
+      /*  public double _prisIalt;*/
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Model.Bolig _selectedDagItem;
@@ -57,6 +59,18 @@ namespace Eating.ViewModel
             }
         }
 
+        /*
+        public double IaltPris
+        {
+            get { return this._prisIalt; }
+            set
+            {
+                this._prisIalt = value;
+                OnPropertyChanged(nameof(IaltPris));
+
+            }
+        }
+        */
 
 
         /*Constructor*/
@@ -82,6 +96,8 @@ namespace Eating.ViewModel
             HentDataFraDiskAsyncTirsdag();
             HentDataFraDiskAsyncOnsdag();
             HentDataFraDiskAsyncTorsdag();
+
+           /* beregnPris = new PrisCommand(PrisPerHusstand);*/
         }
 
 
@@ -98,6 +114,7 @@ namespace Eating.ViewModel
             tempDay.NumberKidsZeroThree = NyBolig.NumberKidsZeroThree;
             tempDay.NumberKidsFourSix = NyBolig.NumberKidsFourSix;
             tempDay.NUmberKidsSevenFifteen = NyBolig.NUmberKidsSevenFifteen;
+          
             TimmeldListenMandag.Add(tempDay);
             GemDataTilDiskAsync();
 
@@ -281,6 +298,40 @@ namespace Eating.ViewModel
 
 
         }
+        /*
+
+        public void BeregnKuvert()
+        {
+            foreach(Model.Bolig beboere in TimmeldListenMandag)
+            {
+                KuverterMandag = KuverterMandag + (
+                    (beboere.NumberAdults * beboere.KuvertProcentAdults) + 
+                    (beboere.NumberKidsZeroThree * beboere.KuvertProcentZeroThree) +
+                    (beboere.NumberKidsFourSix * beboere.KuvertProcentFourSIx) +
+                    (beboere.NUmberKidsSevenFifteen * beboere.KuvertProcentSevenFifteen)
+                    );
+            }
+        }
+
+
+        public void PrisPerHusstand()
+        {
+            BeregnKuvert();
+
+            foreach (Model.Bolig beboere in TimmeldListenMandag)
+            {
+                
+                beboere.PrisPerFamile = (_prisIalt / KuverterMandag) *
+                     ((beboere.NumberAdults * beboere.KuvertProcentAdults) +
+                    (beboere.NumberKidsZeroThree * beboere.KuvertProcentZeroThree) +
+                    (beboere.NumberKidsFourSix * beboere.KuvertProcentFourSIx) +
+                    (beboere.NUmberKidsSevenFifteen * beboere.KuvertProcentSevenFifteen)
+                    );
+            }
+            GemDataTilDiskAsync();
+            
+        }
+        */
 
         protected virtual void OnPropertyChanged(string propertyName)
         {

@@ -20,7 +20,16 @@ namespace Eating.Model
             //this.Add(new Bolig() { HusNr = 43, NumberAdults = 132, NumberKidsZeroThree = 1431, NumberKidsFourSix = 3, NUmberKidsSevenFifteen = 1 });
         }
 
+        public double getKuvurter()
+        {
+            double sum = 0;
 
+            foreach (var bolig in this)
+            {
+                 sum = sum +  bolig.kuverterPerBolig();
+            }
+            return sum;
+        }
 
 
         /// <summary>
@@ -46,6 +55,8 @@ namespace Eating.Model
                 this.Add(BoligItem);
             }
         }
+
+
 
     }
 }

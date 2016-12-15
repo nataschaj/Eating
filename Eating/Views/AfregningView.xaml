@@ -30,7 +30,7 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <TextBlock Text="{Binding NUmberOfAdultsMandag}" Margin="0,176,0,-176"/>
+            <TextBlock Text="{Binding AntalKuverterPerUge}" Margin="0,176,0,-176"/>
         </Grid>
 
         <!-- GRID FOR NAVIGATION -->

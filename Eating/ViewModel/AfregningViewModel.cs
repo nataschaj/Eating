@@ -13,21 +13,30 @@ namespace Eating.ViewModel
         StorageFolder localfolder = null;
         private readonly string filnavn = "mandagJson.json";
         public event PropertyChangedEventHandler PropertyChanged;
- 
+
         /*Uge lister*/
         public Model.TilmeldListe TimmeldListenMandag { get; set; }
 
-
-        /*Count number of adults in the first json object*/
-        public int NUmberOfAdultsMandag
+        ///*Count number of adults in the first json object*/
+        public double NUmberOfAdultsMandag
         {
             get
             {
                 /* return TimmeldListenMandag.Sum(p => p.NumberAdults);*/
-               return TimmeldListenMandag[0].NumberAdults;
+                return TimmeldListenMandag.getKuvurter();
             }
         }
 
+ 
+
+
+        private double antalKuverterPerUge;
+
+        public double AntalKuverterPerUge
+        {
+            get { return antalKuverterPerUge; }
+            set { antalKuverterPerUge = value; }
+        }
 
 
 
@@ -37,11 +46,20 @@ namespace Eating.ViewModel
             TimmeldListenMandag = new Model.TilmeldListe();
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
+         
         }
 
         /*Methods*/
 
-       
+        public double BeregnKuverterMandag()
+        {
+            TimmeldListenMandag.getKuvurter();
+             antalKuverterPerUge = TimmeldListenMandag.getKuvurter();
+            return AntalKuverterPerUge;
+
+        }
+
+
 
         public async void HentDataFraDiskAsync()
         {
