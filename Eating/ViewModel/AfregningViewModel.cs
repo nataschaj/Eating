@@ -17,25 +17,16 @@ namespace Eating.ViewModel
         /*Uge lister*/
         public Model.TilmeldListe TimmeldListenMandag { get; set; }
 
-        ///*Count number of adults in the first json object*/
-        public double NUmberOfAdultsMandag
-        {
-            get
-            {
-                /* return TimmeldListenMandag.Sum(p => p.NumberAdults);*/
-                return TimmeldListenMandag.getKuvurter();
-            }
-        }
-
- 
-
-
+   
+       
         private double antalKuverterPerUge;
 
         public double AntalKuverterPerUge
         {
             get { return antalKuverterPerUge; }
-            set { antalKuverterPerUge = value; }
+            set { antalKuverterPerUge = value;
+                OnPropertyChanged(nameof(AntalKuverterPerUge));
+            }
         }
 
 
@@ -46,21 +37,16 @@ namespace Eating.ViewModel
             TimmeldListenMandag = new Model.TilmeldListe();
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
-         
         }
 
         /*Methods*/
-
-        public double BeregnKuverterMandag()
+        public void BeregnKuverterMandag()
         {
-            TimmeldListenMandag.getKuvurter();
-             antalKuverterPerUge = TimmeldListenMandag.getKuvurter();
-            return AntalKuverterPerUge;
-
+            AntalKuverterPerUge = TimmeldListenMandag.getKuvurter();
         }
 
 
-
+        /*Hent data fra json til lister*/
         public async void HentDataFraDiskAsync()
         {
             // this.Wodliste.Clear();
@@ -70,7 +56,8 @@ namespace Eating.ViewModel
                 string jsonText = await FileIO.ReadTextAsync(file);
                 this.TimmeldListenMandag.Clear();
                 TimmeldListenMandag.IndsetJson(jsonText);
-                OnPropertyChanged("NUmberOfAdultsMandag");
+                BeregnKuverterMandag();
+              
             }
             catch (Exception)
             {/*
