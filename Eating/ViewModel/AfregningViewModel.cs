@@ -34,7 +34,7 @@ namespace Eating.ViewModel
         }
 
         public double hentKuverter { get {
-                return KuverterPerBolig();
+                return KuverterPerBoligIalt();
             }
         }
 
@@ -89,6 +89,7 @@ namespace Eating.ViewModel
         /*Constructor*/
         public AfregningViewModel()
         {
+           
             TimmeldListenMandag = new Model.TilmeldListe();
             TilmeldListenTirsdag = new Model.TilmeldListe();
             TilmeldListenOnsdag = new Model.TilmeldListe();
@@ -99,7 +100,9 @@ namespace Eating.ViewModel
             HentDataFraDiskAsyncTirsdag();
             HentDataFraDiskAsyncOnsdag();
             HentDataFraDiskAsyncTorsdag();
+
             HentDataFraDiskAsyncMenu();
+            
         }
 
         /*Methods*/
@@ -120,10 +123,12 @@ namespace Eating.ViewModel
         }
 
 
-        public double KuverterPerBolig()
+
+        /*Kuverter MANDAG*/
+        public double KuverterPerBoligMandag()
         {
            double Kuverter = 0.0;
-            foreach (var i in TimmeldListenMandag)
+            foreach (var i in TimmeldListenMandag )
             {
                 if (i.HusNr == HentHusnummer)
                 {
@@ -132,6 +137,58 @@ namespace Eating.ViewModel
 
             }
             return Kuverter;
+        }
+
+
+        /*Kuverter Tirsdag*/
+        public double KuverterPerBoligTirsdag()
+        {
+            double Kuverter = 0.0;
+            foreach (var i in TilmeldListenTirsdag)
+            {
+                if (i.HusNr == HentHusnummer)
+                {
+                    Kuverter = i.kuverterPerBolig();
+                }
+
+            }
+            return Kuverter;
+        }
+
+        /*Kuverter Onsdag*/
+        public double KuverterPerBoligOnsdag()
+        {
+            double Kuverter = 0.0;
+            foreach (var i in TilmeldListenOnsdag)
+            {
+                if (i.HusNr == HentHusnummer)
+                {
+                    Kuverter = i.kuverterPerBolig();
+                }
+
+            }
+            return Kuverter;
+        }
+
+        /*Kuverter Torsdag*/
+        public double KuverterPerBoligTorsdag()
+        {
+            double Kuverter = 0.0;
+            foreach (var i in TilmeldListenTorsdag)
+            {
+                if (i.HusNr == HentHusnummer)
+                {
+                    Kuverter = i.kuverterPerBolig();
+                }
+
+            }
+            return Kuverter;
+        }
+
+
+        public double KuverterPerBoligIalt()
+        {
+            return KuverterPerBoligMandag() + KuverterPerBoligTirsdag() + KuverterPerBoligOnsdag() + KuverterPerBoligTorsdag();
         }
 
         public int PrisPerBolig()
@@ -152,8 +209,8 @@ namespace Eating.ViewModel
                 this.TimmeldListenMandag.Clear();
                 TimmeldListenMandag.IndsetJson(jsonText);
                 BeregnKuverterForUgen();
-               
 
+                BeregnKuvertPrisPerUge();
 
             }
             catch (Exception)
@@ -178,6 +235,8 @@ namespace Eating.ViewModel
                 TilmeldListenTirsdag.IndsetJson(jsonText);
                 BeregnKuverterForUgen();
 
+                BeregnKuvertPrisPerUge();
+
             }
             catch (Exception)
             {/*
@@ -201,6 +260,9 @@ namespace Eating.ViewModel
                 TilmeldListenOnsdag.IndsetJson(jsonText);
                 BeregnKuverterForUgen();
 
+
+                BeregnKuvertPrisPerUge();
+
             }
             catch (Exception)
             {/*
@@ -223,6 +285,8 @@ namespace Eating.ViewModel
                 this.TilmeldListenTorsdag.Clear();
                 TilmeldListenTorsdag.IndsetJson(jsonText);
                 BeregnKuverterForUgen();
+
+                BeregnKuvertPrisPerUge();
             }
             catch (Exception)
             {/*
@@ -246,8 +310,8 @@ namespace Eating.ViewModel
                 this.MenuListe.Clear();
                 MenuListe.IndsetJson(jsonText);
                 //BeregnKuverterForUgen();
+
                 BeregnKuvertPrisPerUge();
-                BeregnPrisForUgen();
             }
             catch (Exception)
             {/*
