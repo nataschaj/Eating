@@ -13,22 +13,7 @@ namespace Eating.Model
         public int NumberKidsZeroThree { get; set; }
         public int NumberKidsFourSix { get; set; }
         public int NUmberKidsSevenFifteen { get; set; }
-        /*
-        public double PrisPerFamile { get; set; }
-
-        public double KuvertProcentAdults { get; set; }
-        public double KuvertProcentZeroThree { get; set; }
-        public double KuvertProcentFourSIx { get; set; }
-        public double KuvertProcentSevenFifteen { get; set; }
-
-        public Bolig()
-        {
-            this.KuvertProcentAdults = 1;
-            this.KuvertProcentZeroThree = 0;
-            this.KuvertProcentFourSIx = 0.25;
-            this.KuvertProcentSevenFifteen = 0.50;
-        }
-        */
+    
 
         public double kuverterPerBolig()
         {
@@ -40,7 +25,7 @@ namespace Eating.Model
 
         public double BeregnPris(double KuvertPris)
         {
-            return kuverterPerBolig() * KuvertPris;
+            return KuvertPris / kuverterPerBolig()  ;
         }
 
         public override string ToString()
