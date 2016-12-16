@@ -72,6 +72,17 @@ namespace Eating.ViewModel
             }
         }
 
+        /*PRIS FOR KUVERTER PER UGE*/
+        private double prisPerKuvert;
+
+        public double PrisPerKuvert
+        {
+            get { return prisPerKuvert; }
+            set { prisPerKuvert = value;
+                OnPropertyChanged(nameof(PrisPerKuvert));
+            }
+        }
+
 
 
 
@@ -92,15 +103,20 @@ namespace Eating.ViewModel
         }
 
         /*Methods*/
-        public void BeregnKuverterForUgen()
+        public double BeregnKuverterForUgen()
         {
-            AntalKuverterPerUge = TimmeldListenMandag.getKuvurter() + TilmeldListenTirsdag.getKuvurter() + TilmeldListenOnsdag.getKuvurter() + TilmeldListenTorsdag.getKuvurter();
+            return AntalKuverterPerUge = TimmeldListenMandag.getKuvurter() + TilmeldListenTirsdag.getKuvurter() + TilmeldListenOnsdag.getKuvurter() + TilmeldListenTorsdag.getKuvurter();
         }
 
 
-        public void BeregnPrisForUgen()
+        public double BeregnPrisForUgen()
         {
-            AntalPrisPerUge = MenuListe.getPriser();
+           return  AntalPrisPerUge = MenuListe.getPriser();
+        }
+
+        public double BeregnKuvertPrisPerUge()
+        {
+            return PrisPerKuvert = BeregnPrisForUgen() / BeregnKuverterForUgen();
         }
 
 
@@ -230,6 +246,7 @@ namespace Eating.ViewModel
                 this.MenuListe.Clear();
                 MenuListe.IndsetJson(jsonText);
                 //BeregnKuverterForUgen();
+                BeregnKuvertPrisPerUge();
                 BeregnPrisForUgen();
             }
             catch (Exception)

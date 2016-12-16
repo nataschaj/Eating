@@ -37,6 +37,8 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
 
@@ -52,11 +54,13 @@
 
             <TextBlock Grid.Row="4" Text="{Binding visPris}"></TextBlock>
 
-
-            <TextBlock Text="{Binding AntalKuverterPerUge}" Margin="0,176,0,-176"/>
-
             <TextBlock Grid.Row="5" Text="{Binding AntalPrisPerUge}"/>
 
+            <TextBlock Grid.Row="6" Text="{Binding AntalKuverterPerUge}"/>
+
+        
+
+            <TextBlock Grid.Row="7" Text="{Binding PrisPerKuvert}"/>
 
         </Grid>
 
