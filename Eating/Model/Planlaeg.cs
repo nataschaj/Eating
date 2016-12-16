@@ -13,15 +13,18 @@ namespace Eating.Model
         public string Hjaelpere { get; set; }
         public string Oprydere { get; set; }
         public string Dag { get; set; }
+        public double Pris { get; set; }
         public DateTime OpretDato { get; set; }
         public string OpretDatoText { get {
                 return OpretDato.ToString("d-M-yyyy");
             } }
 
+
+
         public override string ToString()
         {
             //return "Ret: " + Ret + " \n " + "Chef kok: " + ChefKok + "\n  "+ "Hjælpere: " + Hjaelpere + "\n  " + "Opryddere: " + Oprydere + " \n ";
-            return $"Ret: {Ret}, Chef kok: {ChefKok}, \n Hjælpere: {Hjaelpere}, Opryddere: {Oprydere}, Dag: {Dag}" ;
+            return $"Ret: {Ret}, Chef kok: {ChefKok}, \n Hjælpere: {Hjaelpere}, Opryddere: {Oprydere}, Dag: {Dag}, Pris: {Pris}" ;
         }
     }
 }

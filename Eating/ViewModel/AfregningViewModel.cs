@@ -15,6 +15,7 @@ namespace Eating.ViewModel
         private readonly string Tirsdag = "TirsdagJson.json";
         private readonly string Onsdag = "OnsdagJson.json";
         private readonly string Torsdag = "TorsdagJson.json";
+        private readonly string Menu = "jsonMENU.json";
         public event PropertyChangedEventHandler PropertyChanged;
 
         /*Uge lister*/
@@ -22,6 +23,8 @@ namespace Eating.ViewModel
         public Model.TilmeldListe TilmeldListenTirsdag { get; set; }
         public Model.TilmeldListe TilmeldListenOnsdag { get; set; }
         public Model.TilmeldListe TilmeldListenTorsdag { get; set; }
+        public Model.PlanlaegListe MenuListe { get; set; }
+
         private int hentHusnummer;
         public int HentHusnummer
         {
@@ -48,14 +51,27 @@ namespace Eating.ViewModel
 
 
         /*Mandag kuverter*/
-        private double antalKuverterPerDag;
-        public double AntalKuverterPerDag
+        private double antalKuverterPerUge;
+        public double AntalKuverterPerUge
         {
-            get { return antalKuverterPerDag; }
-            set { antalKuverterPerDag = value;
-                OnPropertyChanged(nameof(AntalKuverterPerDag));
+            get { return antalKuverterPerUge; }
+            set { antalKuverterPerUge = value;
+                OnPropertyChanged(nameof(AntalKuverterPerUge));
             }
         }
+
+
+        /*PRIS*/
+        private double antalPrisPerUge;
+
+        public double AntalPrisPerUge
+        {
+            get { return antalPrisPerUge; }
+            set { antalPrisPerUge = value;
+                OnPropertyChanged(nameof(AntalPrisPerUge));
+            }
+        }
+
 
 
 
@@ -66,17 +82,25 @@ namespace Eating.ViewModel
             TilmeldListenTirsdag = new Model.TilmeldListe();
             TilmeldListenOnsdag = new Model.TilmeldListe();
             TilmeldListenTorsdag = new Model.TilmeldListe();
+            MenuListe = new Model.PlanlaegListe();
             localfolder = ApplicationData.Current.LocalFolder;
             HentDataFraDiskAsync();
             HentDataFraDiskAsyncTirsdag();
             HentDataFraDiskAsyncOnsdag();
             HentDataFraDiskAsyncTorsdag();
+            HentDataFraDiskAsyncMenu();
         }
 
         /*Methods*/
         public void BeregnKuverterForUgen()
         {
-            AntalKuverterPerDag = TimmeldListenMandag.getKuvurter() + TilmeldListenTirsdag.getKuvurter() + TilmeldListenOnsdag.getKuvurter() + TilmeldListenTorsdag.getKuvurter();
+            AntalKuverterPerUge = TimmeldListenMandag.getKuvurter() + TilmeldListenTirsdag.getKuvurter() + TilmeldListenOnsdag.getKuvurter() + TilmeldListenTorsdag.getKuvurter();
+        }
+
+
+        public void BeregnPrisForUgen()
+        {
+            AntalPrisPerUge = MenuListe.getPriser();
         }
 
 
@@ -183,7 +207,30 @@ namespace Eating.ViewModel
                 this.TilmeldListenTorsdag.Clear();
                 TilmeldListenTorsdag.IndsetJson(jsonText);
                 BeregnKuverterForUgen();
+            }
+            catch (Exception)
+            {/*
+                 MessageDialog messageDialog = new MessageDialog("Ændret filnavn eller har du ikke gemt ?", "Filnavn");
+                  await messageDialog.ShowAsync(); 
+                  */
+            }
+        }
 
+
+
+        /*MENU*/
+        /*Hent data fra json til lister*/
+        public async void HentDataFraDiskAsyncMenu()
+        {
+            // this.Wodliste.Clear();
+            try
+            {
+                StorageFile file = await localfolder.GetFileAsync(Menu);
+                string jsonText = await FileIO.ReadTextAsync(file);
+                this.MenuListe.Clear();
+                MenuListe.IndsetJson(jsonText);
+                //BeregnKuverterForUgen();
+                BeregnPrisForUgen();
             }
             catch (Exception)
             {/*

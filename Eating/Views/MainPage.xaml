@@ -67,7 +67,10 @@
 
                                 <TextBlock FontWeight="Bold" Text="Oprydere" Foreground="#FF9D2D2C"/>
                                 <TextBlock  Padding="0,0,0,10" Text="{Binding Oprydere}" Foreground="#FF9D2D2C" />
-                            </StackPanel>
+                                
+                                    <TextBlock FontWeight="Bold" Text="Pris" Foreground="#FF9D2D2C"/>
+                                    <TextBlock  Padding="0,0,0,10" Text="{Binding Pris}" Foreground="#FF9D2D2C" />
+                                </StackPanel>
 
                             <Grid x:Name="FirstGrid"  Grid.Column="0"/>
                             <Grid x:Name="SecondGrid" Grid.Column="1"/>

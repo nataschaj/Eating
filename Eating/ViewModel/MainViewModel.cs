@@ -67,6 +67,7 @@ namespace Eating.ViewModel
             temp.ChefKok = nyPlanlaeg.ChefKok;
             temp.Hjaelpere = nyPlanlaeg.Hjaelpere;
             temp.Oprydere = nyPlanlaeg.Oprydere;
+            temp.Pris = nyPlanlaeg.Pris;
             temp.Dag = nyPlanlaeg.Dag;
             temp.OpretDato = DateTime.Now;
             PlanlaegListe.Add(temp);

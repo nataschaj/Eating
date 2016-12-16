@@ -13,7 +13,6 @@ namespace Eating.Model
     {
         public TilmeldListe() : base()
         {
-
             //this.Add(new Planlaeg() { Ret = "Kylling", ChefKok="Mathias", Hjaelpere = "Natascha", Oprydere="Rudi" });
             //this.Add(new Bolig() { HusNr = 33, NumberAdults = 2, NumberKidsZeroThree = 1, NumberKidsFourSix = 3, NUmberKidsSevenFifteen = 1 });
             //this.Add(new Bolig() { HusNr = 12, NumberAdults = 2, NumberKidsZeroThree = 411, NumberKidsFourSix = 3341, NUmberKidsSevenFifteen = 1 });

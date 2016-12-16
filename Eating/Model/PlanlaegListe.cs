@@ -19,7 +19,18 @@ namespace Eating.Model
             
         }
 
-        
+
+
+        public double getPriser()
+        {
+            double sum = 0;
+            foreach (var MenuPris in this)
+            {
+                sum = sum + MenuPris.Pris;
+            }
+            return sum;
+        }
+
 
         /// <summary>
         /// Giver mig Json format for Planlegningsliste object

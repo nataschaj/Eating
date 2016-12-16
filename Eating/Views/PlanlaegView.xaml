@@ -64,8 +64,12 @@
                     <TextBox x:Name="RetTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Ret, Mode=TwoWay}" VerticalAlignment="Top"/>
                 </StackPanel>
 
+                    <StackPanel Margin="10,0,0,0">
+                        <TextBlock x:Name="PrisTbl" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Pris" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.16"/>
+                        <TextBox x:Name="PrisTbx" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nyPlanlaeg.Pris, Mode=TwoWay}" VerticalAlignment="Top"/>
+                    </StackPanel>
 
-            </StackPanel>
+                </StackPanel>
             <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" Margin="494,142,0,0" TextWrapping="Wrap" Text="" FontSize="24" VerticalAlignment="Top" />
             <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="366,347,0,0" TextWrapping="Wrap" Text="{Binding SelectedMenu}" VerticalAlignment="Top"/>
 
