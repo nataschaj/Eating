@@ -39,28 +39,31 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
 
             <TextBox Grid.Row="0" Text="{Binding HentHusnummer, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="1" Text="Denne bolig har so mange Kuverter på mandag"></TextBox>
+            <TextBox Grid.Row="1" Text="Denne bolig har so mange Kuverter hele ugen"></TextBox>
             <TextBlock Grid.Row="2" Text="{Binding hentKuverter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
             
             
             
             
             
-            <TextBox Grid.Row="3" Text="{Binding HentPris, Mode=TwoWay}"></TextBox>
+         <!--   <TextBox Grid.Row="3" Text="{Binding HentPris, Mode=TwoWay}"></TextBox> -->
 
-            <TextBlock Grid.Row="4" Text="{Binding visPris}"></TextBlock>
+       <!--     <TextBlock Grid.Row="4" Text="{Binding visPris}"></TextBlock> -->
 
-            <TextBlock Grid.Row="5" Text="{Binding AntalPrisPerUge}"/>
+            <TextBlock Grid.Row="3" Text="Pris for ugen:"></TextBlock>
+            <TextBlock Grid.Row="4" Text="{Binding AntalPrisPerUge}"/>
 
+            <TextBlock Grid.Row="5" Text="Antal kuverter for ugen:"></TextBlock>
             <TextBlock Grid.Row="6" Text="{Binding AntalKuverterPerUge}"/>
 
-        
 
-            <TextBlock Grid.Row="7" Text="{Binding PrisPerKuvert}"/>
+            <TextBlock Grid.Row="7" Text="Pris per kuvert"/>
+            <TextBlock Grid.Row="8" Text="{Binding PrisPerKuvert}"/>
 
         </Grid>
 
