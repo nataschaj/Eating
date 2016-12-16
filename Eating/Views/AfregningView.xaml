@@ -30,7 +30,25 @@
         </Grid>
 
         <Grid Grid.Row="1">
-            <TextBlock Text="{Binding AntalKuverterPerUge}" Margin="0,176,0,-176"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBox Grid.Row="0" Text="{Binding HentHusnummer, Mode=TwoWay}"></TextBox>
+            <TextBox Grid.Row="1" Text="Denne bolig har so mange Kuverter på mandag"></TextBox>
+            <TextBlock Grid.Row="2" Text="{Binding hentKuverter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+            
+            <TextBox Grid.Row="3" Text="{Binding HentPris, Mode=TwoWay}"></TextBox>
+
+            <TextBlock Grid.Row="4" Text="{Binding visPris}"></TextBlock>
+
+
+            <TextBlock Text="{Binding AntalKuverterPerDag}" Margin="0,176,0,-176"/>
         </Grid>
 
         <!-- GRID FOR NAVIGATION -->
@@ -73,6 +91,7 @@
                 </Button>
             </Grid>
         </Grid>
+   
 
 
 

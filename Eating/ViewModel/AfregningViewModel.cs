@@ -17,15 +17,41 @@ namespace Eating.ViewModel
         /*Uge lister*/
         public Model.TilmeldListe TimmeldListenMandag { get; set; }
 
-   
-       
-        private double antalKuverterPerUge;
 
-        public double AntalKuverterPerUge
+        private int hentHusnummer;
+        public int HentHusnummer
         {
-            get { return antalKuverterPerUge; }
-            set { antalKuverterPerUge = value;
-                OnPropertyChanged(nameof(AntalKuverterPerUge));
+            get { return hentHusnummer; }
+            set { hentHusnummer = value; OnPropertyChanged(nameof(HentHusnummer)); OnPropertyChanged(nameof(hentKuverter));
+            }
+        }
+
+        public double hentKuverter { get {
+                return KuverterPerBolig();
+            }
+        }
+
+        private int hetPris;
+
+        public int HentPris
+        {
+            get { return hetPris; }
+            set { hetPris = value; OnPropertyChanged(nameof(HentPris)); OnPropertyChanged(nameof(visPris)); }
+        }
+
+        public int visPris { get {
+                return PrisPerBolig();
+            } }
+
+
+
+        private double antalKuverterPerDag;
+
+        public double AntalKuverterPerDag
+        {
+            get { return antalKuverterPerDag; }
+            set { antalKuverterPerDag = value;
+                OnPropertyChanged(nameof(AntalKuverterPerDag));
             }
         }
 
@@ -42,7 +68,32 @@ namespace Eating.ViewModel
         /*Methods*/
         public void BeregnKuverterMandag()
         {
-            AntalKuverterPerUge = TimmeldListenMandag.getKuvurter();
+            AntalKuverterPerDag = TimmeldListenMandag.getKuvurter();
+        }
+
+
+        public double KuverterPerBolig()
+        {
+           double Kuverter = 0.0;
+            foreach (var i in TimmeldListenMandag)
+            {
+                if (i.HusNr == HentHusnummer)
+                {
+                    Kuverter = i.kuverterPerBolig();
+                }
+
+            }
+            return Kuverter;
+        }
+
+        public int PrisPerBolig()
+        {
+
+
+
+
+            int pris = HentPris;
+            return pris;
         }
 
 
@@ -57,7 +108,9 @@ namespace Eating.ViewModel
                 this.TimmeldListenMandag.Clear();
                 TimmeldListenMandag.IndsetJson(jsonText);
                 BeregnKuverterMandag();
-              
+                KuverterPerBolig();
+
+
             }
             catch (Exception)
             {/*

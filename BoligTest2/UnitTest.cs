@@ -75,11 +75,11 @@ namespace BoligTest2
         public void TestMethod6()
         {
             bolig.NumberAdults = 1;
-            bolig.NumberKidsFourSix = 2;
+            bolig.NumberKidsFourSix = 3;
             bolig.NUmberKidsSevenFifteen = 0;
 
-            double PrisResultat = bolig.BeregnPris(750);
-            Assert.AreEqual(500, PrisResultat);
+            double PrisResultat = bolig.BeregnPris(500);
+            Assert.AreEqual(285.714, PrisResultat,0.001);
         }
     }
 }
