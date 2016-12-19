@@ -29,14 +29,20 @@ namespace Eating.ViewModel
         public int HentHusnummer
         {
             get { return hentHusnummer; }
-            set { hentHusnummer = value; OnPropertyChanged(nameof(HentHusnummer)); OnPropertyChanged(nameof(hentKuverter));
+            set { hentHusnummer = value; OnPropertyChanged(nameof(HentHusnummer)); OnPropertyChanged(nameof(hentKuverter)); OnPropertyChanged(nameof(hentBoligPrisPerUge));
             }
         }
+
+
 
         public double hentKuverter { get {
                 return KuverterPerBoligIalt();
             }
         }
+
+        public double hentBoligPrisPerUge { get {
+                return PrisPerBoligForUgen();
+            } }
 
         private int hetPris;
         public int HentPris
@@ -102,7 +108,9 @@ namespace Eating.ViewModel
             HentDataFraDiskAsyncTorsdag();
 
             HentDataFraDiskAsyncMenu();
-            
+          
+
+
         }
 
         /*Methods*/
@@ -119,7 +127,7 @@ namespace Eating.ViewModel
 
         public double BeregnKuvertPrisPerUge()
         {
-            return PrisPerKuvert = BeregnPrisForUgen() / BeregnKuverterForUgen();
+            return PrisPerKuvert = (BeregnPrisForUgen() / BeregnKuverterForUgen());
         }
 
 
@@ -195,6 +203,12 @@ namespace Eating.ViewModel
         {
             int pris = HentPris;
             return pris;
+        }
+
+
+        public double PrisPerBoligForUgen()
+        {
+            return KuverterPerBoligIalt() * BeregnKuvertPrisPerUge();
         }
 
         /*Mandag*/
@@ -312,6 +326,7 @@ namespace Eating.ViewModel
                 //BeregnKuverterForUgen();
 
                 BeregnKuvertPrisPerUge();
+               
             }
             catch (Exception)
             {/*

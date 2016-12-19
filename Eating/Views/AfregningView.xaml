@@ -40,22 +40,17 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
 
+            <TextBlock Grid.Row="0" FontSize="30" Text="Indtast Hus nummer" TextAlignment="Center" ></TextBlock>
+            <TextBox Grid.Row="1" FontSize="20" Text="{Binding HentHusnummer, Mode=TwoWay}" TextAlignment="Center"></TextBox>
+            <TextBlock Width="auto" FontSize="30" Grid.Row="2" Text="Samlet pris for ugen er:" TextAlignment="Center"></TextBlock>
+            <!--<TextBlock Grid.Row="2" Text="{Binding hentKuverter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>-->
+            
 
-            <TextBox Grid.Row="0" Text="{Binding HentHusnummer, Mode=TwoWay}"></TextBox>
-            <TextBox Grid.Row="1" Text="Denne bolig har so mange Kuverter hele ugen"></TextBox>
-            <TextBlock Grid.Row="2" Text="{Binding hentKuverter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-            
-            
-            
-            
-            
-         <!--   <TextBox Grid.Row="3" Text="{Binding HentPris, Mode=TwoWay}"></TextBox> -->
-
-       <!--     <TextBlock Grid.Row="4" Text="{Binding visPris}"></TextBlock> -->
-
-            <TextBlock Grid.Row="3" Text="Pris for ugen:"></TextBlock>
+            <!--<TextBlock Grid.Row="3" Text="Pris for ugen:"></TextBlock>
             <TextBlock Grid.Row="4" Text="{Binding AntalPrisPerUge}"/>
 
             <TextBlock Grid.Row="5" Text="Antal kuverter for ugen:"></TextBlock>
@@ -63,7 +58,10 @@
 
 
             <TextBlock Grid.Row="7" Text="Pris per kuvert"/>
-            <TextBlock Grid.Row="8" Text="{Binding PrisPerKuvert}"/>
+            <TextBlock Grid.Row="8" Text="{Binding PrisPerKuvert}"/>-->
+
+
+            <TextBlock Grid.Row="3" FontSize="20" Text="{Binding hentBoligPrisPerUge, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Center"></TextBlock>
 
         </Grid>
 

@@ -25,7 +25,7 @@ namespace Eating.Model
 
         public double BeregnPris(double KuvertPris)
         {
-            return KuvertPris / kuverterPerBolig()  ;
+            return KuvertPris * kuverterPerBolig()  ;
         }
 
         public override string ToString()
