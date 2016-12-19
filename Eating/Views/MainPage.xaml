@@ -41,39 +41,38 @@
 
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
+                                <ColumnDefinition Width="auto"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
 
-                            <StackPanel Grid.Column="0" >
+                            <StackPanel Grid.Column="0" Padding="0,0,100,0" >
                                 <TextBlock x:Name="Dag"   FontStyle="Italic"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Dag}" VerticalAlignment="Top"  TextAlignment="Center" FontSize="48" Foreground="#FF9D2D2C"/>
                                 <TextBlock Text="Oprettelse Dato:"  TextAlignment="Center"  />
                                 <TextBlock x:Name="Dato" Text="{Binding OpretDatoText}"  TextAlignment="Center"/>
                             </StackPanel>
 
-                            <StackPanel Grid.Column="1" >
-                                <TextBlock FontWeight="Bold" Text="Menu" Foreground="#FF9D2D2C"/>
-                                <TextBlock  Padding="0,0,0,10" Text="{Binding Ret}" Foreground="#FF9D2D2C"/>
+                                <StackPanel Grid.Column="1" Padding="0,0,100,0">
+                                <TextBlock FontWeight="Bold" Text="Menu" Foreground="#FF9D2D2C" TextAlignment="Center"/>
+                                    <TextBlock Width="auto" Padding="0,0,0,10" Text="{Binding Ret}" FontSize="20" TextAlignment="Center"/>
 
 
-                                <TextBlock FontWeight="Bold" Text="Chef kok" Foreground="#FF9D2D2C"/>
-                                <TextBlock  Padding="0,0,0,10" Text="{Binding ChefKok}" Foreground="#FF9D2D2C"/>
+                                    <TextBlock FontWeight="Bold" Text="Chef kok" Foreground="#FF9D2D2C" TextAlignment="Center"/>
+                                    <TextBlock  Width="auto" Padding="0,0,0,10" Text="{Binding ChefKok}" FontSize="20" TextAlignment="Center"/>
 
 
-                                <TextBlock FontWeight="Bold" Text="Hjælpere" Foreground="#FF9D2D2C"/>
-                                <TextBlock  Padding="0,0,0,10" Text="{Binding Hjaelpere}" Foreground="#FF9D2D2C"/>
+                                    <TextBlock FontWeight="Bold" Text="Hjælpere" Foreground="#FF9D2D2C" TextAlignment="Center"/>
+                                    <TextBlock Width="auto" Padding="0,0,0,10" Text="{Binding Hjaelpere}" FontSize="20"  TextAlignment="Center"/>
 
 
-                                <TextBlock FontWeight="Bold" Text="Oprydere" Foreground="#FF9D2D2C"/>
-                                <TextBlock  Padding="0,0,0,10" Text="{Binding Oprydere}" Foreground="#FF9D2D2C" />
-                                
-                                    <TextBlock FontWeight="Bold" Text="Pris" Foreground="#FF9D2D2C"/>
-                                    <TextBlock  Padding="0,0,0,10" Text="{Binding Pris}" Foreground="#FF9D2D2C" />
+                                    <TextBlock FontWeight="Bold" Text="Oprydere" Foreground="#FF9D2D2C" TextAlignment="Center"/>
+                                    <TextBlock Width="auto" Padding="0,0,0,10" Text="{Binding Oprydere}" FontSize="20"  TextAlignment="Center" />
+
+                                    <TextBlock FontWeight="Bold" Text="Pris" Foreground="#FF9D2D2C" TextAlignment="Center"/>
+                                    <TextBlock Width="auto" Padding="0,0,0,10" Text="{Binding Pris}" FontSize="20"  TextAlignment="Center" />
                                 </StackPanel>
 
-                            <Grid x:Name="FirstGrid"  Grid.Column="0"/>
-                            <Grid x:Name="SecondGrid" Grid.Column="1"/>
+                       
                         </Grid>
 
 
