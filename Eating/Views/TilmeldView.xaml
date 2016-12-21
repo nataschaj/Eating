@@ -8,7 +8,7 @@
     x:Class="Eating.Views.TilmeldView"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  x:Name="MainGrid">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  x:Name="MainGrid" Margin="-258,0,0,-254">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -23,14 +23,14 @@
 
         <!-- GRID FOR HEADER -->
         <Grid x:Name="FirstRow Header" Grid.Column="0" Grid.Row="0"  Background="#FF9D2D2C" VerticalAlignment="top" >
-            <TextBlock Text="TIlmeld" Padding="15" TextAlignment="Center" Foreground="White"></TextBlock>
+            <TextBlock Text="TIlmeld" Padding="15" TextAlignment="Center" Foreground="White"/>
         </Grid>
 
         <!-- GRID FOR INDSTASTNING OG GEM KNAP -->
         <Grid Name="SecondRow Fields" Grid.Column="0" Grid.Row="1">
             <Grid x:Name="InsertFields">
                 <Grid.ColumnDefinitions>
-                     <ColumnDefinition x:Name="husNr"></ColumnDefinition>
+                    <ColumnDefinition x:Name="husNr"></ColumnDefinition>
                     <ColumnDefinition x:Name="nrAdults"></ColumnDefinition>
                     <ColumnDefinition x:Name="kids03"></ColumnDefinition>
                     <ColumnDefinition x:Name="kids46"></ColumnDefinition>
@@ -67,15 +67,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Button Background="#FF9D2D2C" Margin="-3,404,3.333,-484" Foreground="White" Content="Home" Height="auto" Width="auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="Eating.MainPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </Button>
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="1" Content="Planlæg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
-                <Button Background="#FF9D2D2C" Margin="0" Foreground="White" Grid.Column="2" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Button>
+                <Button Background="#FF9D2D2C" Margin="296,404,3.667,-484" Foreground="White" Content="Planlæg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2"/>
+                <Button Background="#FF9D2D2C" Margin="295.667,404,-3,-484" Foreground="White" Grid.Column="1" Content="Tilmeld" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2"></Button>
             </Grid>
 
         </Grid>
